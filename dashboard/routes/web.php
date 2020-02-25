@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
+
+Route::get('/', 'DashboardController@overview')->name('overview');
 Route::get('/home', 'HomeController@index')->name('home');
