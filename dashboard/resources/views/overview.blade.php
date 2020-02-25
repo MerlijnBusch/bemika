@@ -21,7 +21,6 @@
     <div id="app">
         <example-component></example-component>
     </div>
-    <h1>hello</h1>
     <script src="/js/app.js"></script>
 </body>
 </html>
