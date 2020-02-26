@@ -15,11 +15,6 @@ class CreateActivity extends Migration
     {
         Schema::create('activity', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('patient_id');
-            $table->foreign('patient_id')
-                ->references('id')
-                ->on('patient')
-                ->onDelete('cascade');
             $table->string('title');
             $table->string('description');
             $table->string('image_icon');
