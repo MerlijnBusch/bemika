@@ -15,6 +15,12 @@ class AddPatient extends Migration
     {
         Schema::create('patient', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id')->nullable();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
             $table->string('name');
             $table->string('color_code');
             $table->timestamps();
