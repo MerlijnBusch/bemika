@@ -20,6 +20,7 @@
        DB_DATABASE=bemika
        DB_USERNAME=root
        DB_PASSWORD=```
+* also set ```APP_KEY``` to ```APP_KEY=base64:XiZACCniwNfAr0SVpXeNAjAgix7u6XOJP3psxd0JDNU=```
 * Then run the following command in the console ```php artisan migrate``` to migrate the database incase there is any error do ``` php artisan migrate:fresh```
 * Then run the command ```php artisan serve``` to start the local web server
 
