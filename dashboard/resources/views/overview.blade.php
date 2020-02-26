@@ -17,10 +17,15 @@
                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
             </li>
         @endif
+    @else
+        <div id="app">
+            <example-component></example-component>
+        </div>
     @endguest
-    <div id="app">
-        <example-component></example-component>
-    </div>
+
+    @yield('content')
+
+    @yield('js')
     <script src="/js/app.js"></script>
 </body>
 </html>

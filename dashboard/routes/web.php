@@ -13,5 +13,4 @@
 
 Auth::routes();
 
-
 Route::get('/', 'DashboardController@overview')->name('overview');
