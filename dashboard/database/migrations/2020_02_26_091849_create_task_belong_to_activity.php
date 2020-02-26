@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPatient extends Migration
+class CreateTaskBelongToActivity extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class AddPatient extends Migration
      */
     public function up()
     {
-        Schema::create('patient', function (Blueprint $table) {
+        Schema::create('task_belong_to_activity', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')
+            $table->unsignedBigInteger('activity_id');
+            $table->foreign('activity_id')
                 ->references('id')
-                ->on('users')
+                ->on('activity')
                 ->onDelete('cascade');
-            $table->string('name');
-            $table->string('color_code');
+            $table->bigInteger('step_id');
+            $table->string('title');
+            $table->string('description');
             $table->timestamps();
         });
     }
@@ -34,7 +35,7 @@ class AddPatient extends Migration
     public function down()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::dropIfExists('patient');
+        Schema::dropIfExists('task_belong_to_activity');
         Schema::disableForeignKeyConstraints();
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPatient extends Migration
+class CreateActivity extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class AddPatient extends Migration
      */
     public function up()
     {
-        Schema::create('patient', function (Blueprint $table) {
+        Schema::create('activity', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')
+            $table->unsignedBigInteger('patient_id');
+            $table->foreign('patient_id')
                 ->references('id')
-                ->on('users')
+                ->on('patient')
                 ->onDelete('cascade');
-            $table->string('name');
-            $table->string('color_code');
+            $table->string('title');
+            $table->string('description');
+            $table->string('image_icon');
             $table->timestamps();
         });
     }
@@ -34,7 +35,7 @@ class AddPatient extends Migration
     public function down()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::dropIfExists('patient');
+        Schema::dropIfExists('activity');
         Schema::disableForeignKeyConstraints();
     }
 }
