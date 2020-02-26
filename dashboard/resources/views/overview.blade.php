@@ -18,6 +18,10 @@
             </li>
         @endif
     @else
+        <div id="offline_popup">
+            <h1>your offline</h1>
+        </div>
+
         <div id="app">
             <example-component></example-component>
         </div>
@@ -27,5 +31,10 @@
 
     @yield('js')
     <script src="/js/app.js"></script>
+    <script>
+        setInterval(() => {
+            if(!navigator.onLine) document.getElementById('offline_popup').style.display = 'block'
+        }, 2500) //every 2500 sec check if user has internet connection
+    </script>
 </body>
 </html>

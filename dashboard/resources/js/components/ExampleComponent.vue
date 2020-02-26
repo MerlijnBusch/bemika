@@ -17,7 +17,7 @@
 <script>
     export default {
         data(){
-            return{
+            return {
                 title: "Hello world!"
             }
         },
