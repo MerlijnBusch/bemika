@@ -20,9 +20,9 @@ class CreateTaskBelongToActivity extends Migration
                 ->references('id')
                 ->on('activity')
                 ->onDelete('cascade');
-            $table->bigInteger('step_id');
+            $table->unsignedBigInteger('step_id');
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->timestamps();
         });
     }
