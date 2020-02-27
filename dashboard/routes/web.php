@@ -13,4 +13,6 @@
 
 Auth::routes();
 
-Route::get('/', 'DashboardController@overview')->name('overview');
+Route::get('/', 'DashboardController@index')->name('home');
+Route::get('/dashboard', 'DashboardController@overview')->name('overview');
+

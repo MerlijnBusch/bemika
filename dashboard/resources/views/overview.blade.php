@@ -8,32 +8,23 @@
     <title>Document</title>
 </head>
 <body>
+
+    <div id="offline_popup" style="display: none">
+        <h1>your offline</h1>
+    </div>
+
+    <div id="app">
+        <example-component></example-component>
+    </div>
+
     @guest
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-        </li>
-        @if (Route::has('register'))
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-            </li>
-        @endif
-    @else
-        <div id="offline_popup">
-            <h1>your offline</h1>
-        </div>
-
-        <div id="app">
-            <example-component></example-component>
-        </div>
+        epaewwaea
     @endguest
-
-    @yield('content')
-
-    @yield('js')
     <script src="/js/app.js"></script>
     <script>
         setInterval(() => {
-            if(!navigator.onLine) document.getElementById('offline_popup').style.display = 'block'
+            if(!navigator.onLine) document.getElementById('offline_popup').style.display = 'block';
+            else document.getElementById('offline_popup').style.display = 'none';
         }, 2500) //every 2500 sec check if user has internet connection
     </script>
 </body>

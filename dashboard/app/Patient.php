@@ -28,4 +28,10 @@ class Patient extends Model
         return $this->belongsTo('App\User');
 
     }
+
+    public function plannedActivities(){
+
+        return $this->hasMany('App\PlannedActivities', 'patient_id');
+
+    }
 }
