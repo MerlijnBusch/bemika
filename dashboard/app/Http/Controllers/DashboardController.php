@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Activity;
 use App\Dashboard;
 use App\Patient;
-use App\PlannedActivities;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use stdClass;
@@ -29,26 +28,40 @@ class DashboardController extends Controller
 
     }
 
-    public function overview(){
+    public function dashboard(){
 
         $dashboard = new Dashboard;
         $totalDays = $dashboard->days_in_month(Carbon::now()->month, Carbon::now()->year);
         $monthArray = $dashboard->generateArrayOfAllDaysInMonth($totalDays);
 
         $plannedActivities = $dashboard->getAllPlannedActivitiesInTimePeriodForUser(Auth::id(), Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth());
+        $monthArray = $dashboard->fillArrayWithPlannedActivities($monthArray, $plannedActivities);
 
-        foreach ($plannedActivities as $plannedActivity){
-            $day = substr(explode("-", new Carbon($plannedActivity->planned_date))[2], 0, 2);
-            $tmpObject = new stdClass();
-            $tmpObject->planned_date = $plannedActivity->planned_date;
-            $tmpObject->activity = Activity::find($plannedActivity->activity_id);
-            $tmpObject->patient = Patient::find($plannedActivity->patient_id);
-            array_push($monthArray[$day], $tmpObject);
-        }
-
-        $monthArray = json_encode($monthArray, true);
         return view('dashboard', ['data' => $monthArray]);
 
+    }
+
+    public function month($date){
+        $date = $this->makeNewDateObject($date);
+        dd($date);
+    }
+
+    public function week($date){
+        $date = $this->makeNewDateObject($date);
+        dd($date);
+    }
+
+    public function day($date){
+        $date = $this->makeNewDateObject($date);
+        dd($date);
+    }
+
+    private function makeNewDateObject($date){
+        try {
+            return new Carbon($date);
+        } catch (\Exception $e) {
+            abort('500', 'invalid date object');
+        }
     }
 
 }
