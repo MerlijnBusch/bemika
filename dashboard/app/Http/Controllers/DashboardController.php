@@ -46,7 +46,8 @@ class DashboardController extends Controller
             array_push($monthArray[$day], $tmpObject);
         }
 
-        return view('overview', ['data' => $monthArray]);
+        $monthArray = json_encode($monthArray, true);
+        return view('dashboard', ['data' => $monthArray]);
 
     }
 

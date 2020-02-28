@@ -1925,12 +1925,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['data'],
   data: function data() {
     return {
       title: "Hello world!"
     };
   },
   mounted: function mounted() {
+    console.log(this.data);
     console.log('Component mounted.');
   }
 });

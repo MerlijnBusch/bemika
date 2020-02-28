@@ -16,12 +16,14 @@
 
 <script>
     export default {
+        props: ['data'],
         data(){
             return {
                 title: "Hello world!"
             }
         },
         mounted() {
+            console.log(this.data);
             console.log('Component mounted.')
         }
     }
