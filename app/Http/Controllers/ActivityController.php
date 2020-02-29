@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\activity;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class ActivityController extends Controller
 {
@@ -31,11 +32,11 @@ class ActivityController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return void
+     * @return Factory|View
      */
     public function create()
     {
-        //
+        return view('partials.Activity.create');
     }
 
     /**

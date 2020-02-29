@@ -1,0 +1,20 @@
+html, body{
+    height: 100%;
+    margin: 0
+}
+
+.layouts-main-container{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.layouts-main-container-sidebar{
+    width: 232px;
+    background: red;
+}
+
+.layouts-main-container-content{
+    flex: 1;
+    background: yellow;
+}

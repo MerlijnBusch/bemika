@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\patient;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class PatientController extends Controller
 {
@@ -20,7 +23,7 @@ class PatientController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -30,18 +33,18 @@ class PatientController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Factory|View
      */
     public function create()
     {
-        //
+        return view('partials.Patient.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return void
      */
     public function store(Request $request)
     {
@@ -52,7 +55,7 @@ class PatientController extends Controller
      * Display the specified resource.
      *
      * @param  \App\patient  $patient
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show(patient $patient)
     {
@@ -63,7 +66,7 @@ class PatientController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\patient  $patient
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit(patient $patient)
     {
@@ -73,9 +76,9 @@ class PatientController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @param  \App\patient  $patient
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, patient $patient)
     {
@@ -86,7 +89,7 @@ class PatientController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\patient  $patient
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(patient $patient)
     {

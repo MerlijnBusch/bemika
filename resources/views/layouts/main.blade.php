@@ -7,6 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{env('APP_NAME')}} @yield('title')</title>
+    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
     @yield('css')
 </head>
 <body>
@@ -16,37 +17,14 @@
     <h1>your offline</h1>
 </div>
 
-<style>
-    html, body{
-        height: 100%;
-        margin: 0
-    }
-
-    .main-container{
-        display: flex;
-        flex-direction: row;
-        height: 100%;
-    }
-
-    .main-container-sidebar{
-        width: 232px;
-        background: red;
-    }
-
-    .main-container-content{
-        flex: 1;
-        background: yellow;
-    }
-</style>
-
 @include('layouts.navbar')
 
-<div class="main-container">
-    <div class="main-container-sidebar">
+<div class="layouts-main-container">
+    <div class="layouts-main-container-sidebar">
         @include('layouts.sidebar')
     </div>
 
-    <main class="main-container-content">
+    <main class="layouts-main-container-content">
         @yield('content')
     </main>
 </div>

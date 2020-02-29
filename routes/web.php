@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Auth::routes();
 
 Route::get('/', 'DashboardController@index')->name('home');
@@ -19,3 +8,8 @@ Route::get('/dashboard/month/{date}', 'DashboardController@month')->name('dashbo
 Route::get('/dashboard/week/{date}', 'DashboardController@week')->name('dashboard.filter.week');
 Route::get('/dashboard/day/{date}', 'DashboardController@day')->name('dashboard.filter.day');
 
+Route::get('/patient/create', 'PatientController@create')->name('patient.create');
+Route::post('/patient/store', 'PatientController@store')->name('patient.store');
+
+Route::get('/activity/create', 'AcitivtyController@create')->name('activity.create');
+Route::post('/activity/store', 'AcitivtyController@store')->name('activity.store');
