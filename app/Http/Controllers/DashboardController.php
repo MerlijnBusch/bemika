@@ -24,6 +24,9 @@ class DashboardController extends Controller
 
     public function index(){
 
+        if(Auth::check()){
+            return redirect()->route('dashboard');
+        }
         return view('index');
 
     }
