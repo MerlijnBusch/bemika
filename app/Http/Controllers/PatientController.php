@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Patient;
 use App\Rules\ColorCode;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -31,6 +32,18 @@ class PatientController extends Controller
     public function index()
     {
         //
+    }
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function get(Request $request)
+    {
+
+        $patient = Patient::where('user_id', Auth::id())->orderBy('name', 'ASC')->get();
+        return response()->json($patient);
+
     }
 
     /**

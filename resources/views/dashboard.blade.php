@@ -4,9 +4,9 @@
 
 @section('content')
 
-    <div id="app">
+
         <example-component :data="{{$data}}"></example-component>
-    </div>
+
 
 @stop
 

@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Patient;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

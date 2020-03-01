@@ -11,29 +11,30 @@
     @yield('css')
 </head>
 <body>
-
-
-<div id="offline_popup" style="display: none">
-    <h1>your offline</h1>
-</div>
-
-@include('layouts.navbar')
-
-<div class="layouts-main-container">
-    <div class="layouts-main-container-sidebar">
-        @include('layouts.sidebar')
+<div id="app">
+    <div id="offline_popup" style="display: none">
+        <h1>your offline</h1>
     </div>
 
-    <main class="layouts-main-container-content">
-        @yield('content')
-    </main>
+    @include('partials.error')
+
+    @include('layouts.navbar')
+
+    <div class="layouts-main-container">
+        <div class="layouts-main-container-sidebar">
+            @include('layouts.sidebar')
+        </div>
+
+        <main class="layouts-main-container-content">
+            @yield('content')
+        </main>
+    </div>
+
+
+    @include('layouts.footer')
 </div>
-
-
-@include('layouts.footer')
-
 @yield('js')
-<script src="/js/app.js"></script>
+<script async src="{{mix('js/app.js')}}"></script>
 <script>
     setInterval(() => {
         if(!navigator.onLine) document.getElementById('offline_popup').style.display = 'block';

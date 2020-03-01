@@ -4,8 +4,6 @@
 
 @section('content')
 
-    @include('partials.error')
-
     <h1>Create blade patient</h1>
 
     <form method="post" action="{{ route('patient.store') }}">

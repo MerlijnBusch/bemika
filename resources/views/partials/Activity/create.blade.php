@@ -4,8 +4,6 @@
 
 @section('content')
 
-    @include('partials.error')
-
     <h1>Create blade activity</h1>
     <form method="post" action="{{ route('activity.store') }}">
         @method('POST')
