@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property string title
  * @property string description
- * @property string image_icon
+ * @property string image
  */
 
 class Activity extends Model
@@ -21,7 +21,7 @@ class Activity extends Model
     protected $table = 'activity';
 
     protected $fillable = [
-        'title', 'description', 'image_icon',
+        'title', 'description', 'image',
     ];
 
     public function task(){

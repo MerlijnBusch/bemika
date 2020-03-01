@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\activity;
+use App\Activity;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -43,11 +44,30 @@ class ActivityController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return void
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => ['required','max:255'],
+            'description' => ['required','min:25'],
+            'image' => ['required','image','mimes:jpeg,png,jpg,gif,svg','max:2048'],
+        ]);
+
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+
+        request()->image->move(public_path('images'), $imageName);
+
+        $activity = new Activity;
+
+        $activity->title = $validated['title'];
+        $activity->description = $validated['description'];
+        $activity->image = $imageName;
+
+        $activity->save();
+
+        return redirect()->route('dashboard');
+        //@todo add notification towards an email service because new activity is created
     }
 
     /**

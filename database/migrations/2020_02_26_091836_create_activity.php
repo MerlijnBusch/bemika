@@ -17,7 +17,7 @@ class CreateActivity extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->longText('description');
-            $table->string('image_icon');
+            $table->string('image');
             $table->timestamps();
         });
     }
