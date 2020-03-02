@@ -8,17 +8,21 @@
 
         <div class="dropdown__content">
             <ul>
-                <li>Lorem ipsum</li>
-                <li>Lorem ipsum dolor sit</li>
-                <li>Lorem ipsum dolor</li>
+                <li><a :href="`${url}/dashboard/patient/profile/${patient.id}`">User profile</a></li>
+                <li><a :href="`${url}/dashboard/patient/tasks/${patient.id}`">Tasks</a></li>
+                <li><a :href="`${url}/dashboard/patient/calender/${patient.id}`">Calendar</a></li>
+                <li><a :href="`${url}/dashboard/patient/summary/${patient.id}`">Summary</a></li>
             </ul>
         </div>
     </div>
 </template>
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
+        props: ['patient'],
+        data(){
+            return {
+                url: window.location.origin
+            }
+        },
     }
 </script>

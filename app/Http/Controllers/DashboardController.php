@@ -6,7 +6,12 @@ use App\Activity;
 use App\Dashboard;
 use App\Patient;
 use Carbon\Carbon;
+use Exception;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 use stdClass;
 
 class DashboardController extends Controller
@@ -22,6 +27,9 @@ class DashboardController extends Controller
         $this->middleware('auth')->except('index');
     }
 
+    /**
+     * @return Factory|RedirectResponse|View
+     */
     public function index(){
 
         if(Auth::check()){
@@ -31,18 +39,32 @@ class DashboardController extends Controller
 
     }
 
+    /**
+     * @return Factory|View
+     * @throws Exception
+     */
     public function dashboard(){
         $dashboard = new Dashboard;
         $monthArray = $dashboard->generateMonthArray(Carbon::now());
         return view('dashboard', ['data' => $monthArray]);
     }
 
+    /**
+     * @param $date
+     * @return JsonResponse
+     * @throws Exception
+     */
     public function month($date){
         $dashboard = new Dashboard;
         $date = $dashboard->parseCarbonDate($date);
         return response()->json($dashboard->generateMonthArray($date));
     }
 
+    /**
+     * @param $date
+     * @return JsonResponse
+     * @throws Exception
+     */
     public function week($date){// note future self this per week so that means that 24 / 30 is same week and will put on same place doesnt matter if ur between day 24 - 30
         $dashboard = new Dashboard;
         $weekArray = $dashboard->generateArrayOfAllDaysInWeek();
@@ -54,6 +76,10 @@ class DashboardController extends Controller
         return response()->json($weekArray);
     }
 
+    /**
+     * @param $date
+     * @return JsonResponse
+     */
     public function day($date){
         $dashboard = new Dashboard;
         $date = $dashboard->parseCarbonDate($date);
@@ -73,6 +99,38 @@ class DashboardController extends Controller
         }
 
         return response()->json(json_encode($activities, true));
+    }
+
+    /**
+     * @param $id
+     */
+    public function patientProfile($id){
+        $patient = Patient::find($id);
+        dd($patient);
+    }
+
+    /**
+     * @param $id
+     */
+    public function patientTasks($id){
+        $patient = Patient::find($id);
+        dd($patient);
+    }
+
+    /**
+     * @param $id
+     */
+    public function patientCalender($id){
+        $patient = Patient::find($id);
+        dd($patient);
+    }
+
+    /**
+     * @param $id
+     */
+    public function patientSummary($id){
+        $patient = Patient::find($id);
+        dd($patient);
     }
 
 }

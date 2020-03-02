@@ -2027,9 +2027,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  props: ['patient'],
+  data: function data() {
+    return {
+      url: window.location.origin
+    };
   }
 });
 
@@ -37471,7 +37475,9 @@ var render = function() {
           ),
           _vm._v(" "),
           _vm.toggleDropDownBooleans[index]
-            ? _c("sidebar-patient-drop-down-component")
+            ? _c("sidebar-patient-drop-down-component", {
+                attrs: { patient: patient }
+              })
             : _vm._e()
         ],
         1
@@ -37502,37 +37508,79 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "dropdown" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "dropdown__content" }, [
+      _c("ul", [
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href: _vm.url + "/dashboard/patient/profile/" + _vm.patient.id
+              }
+            },
+            [_vm._v("User profile")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href: _vm.url + "/dashboard/patient/tasks/" + _vm.patient.id
+              }
+            },
+            [_vm._v("Tasks")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href: _vm.url + "/dashboard/patient/calender/" + _vm.patient.id
+              }
+            },
+            [_vm._v("Calendar")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                href: _vm.url + "/dashboard/patient/summary/" + _vm.patient.id
+              }
+            },
+            [_vm._v("Summary")]
+          )
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "dropdown" }, [
-      _c("div", { staticClass: "dropdown__header" }, [
-        _c("span", [_vm._v("Header")]),
-        _vm._v(" text\n        "),
-        _c("i", {
-          staticClass: "fa fa-angle-down",
-          attrs: { "aria-hidden": "true" }
-        }),
-        _vm._v(" "),
-        _c("i", {
-          staticClass: "fa fa-angle-up",
-          attrs: { "aria-hidden": "true" }
-        })
-      ]),
+    return _c("div", { staticClass: "dropdown__header" }, [
+      _c("span", [_vm._v("Header")]),
+      _vm._v(" text\n        "),
+      _c("i", {
+        staticClass: "fa fa-angle-down",
+        attrs: { "aria-hidden": "true" }
+      }),
       _vm._v(" "),
-      _c("div", { staticClass: "dropdown__content" }, [
-        _c("ul", [
-          _c("li", [_vm._v("Lorem ipsum")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Lorem ipsum dolor sit")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("Lorem ipsum dolor")])
-        ])
-      ])
+      _c("i", {
+        staticClass: "fa fa-angle-up",
+        attrs: { "aria-hidden": "true" }
+      })
     ])
   }
 ]
@@ -51228,8 +51276,8 @@ var state = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\timhu\Desktop\bemika\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\timhu\Desktop\bemika\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/merlijn/PhpstormProjects/dashboard-robin-assistant/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/merlijn/PhpstormProjects/dashboard-robin-assistant/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

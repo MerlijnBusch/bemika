@@ -34,14 +34,4 @@ class Patient extends Model
         return $this->hasMany('App\PlannedActivities', 'patient_id');
 
     }
-
-    /**
-     * Get the route key for the model.
-     *
-     * @return string
-     */
-    public function getRouteKeyName()
-    {
-        return 'name';
-    }
 }

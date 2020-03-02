@@ -2,7 +2,7 @@
     <div>
         <div v-for="(patient, index) in patients">
             <div @click="toggleDropdown(index)">{{patient.name}} {{toggleDropDownBooleans[index]}} </div>
-            <sidebar-patient-drop-down-component v-if="toggleDropDownBooleans[index]"></sidebar-patient-drop-down-component>
+            <sidebar-patient-drop-down-component v-if="toggleDropDownBooleans[index]" :patient="patient"></sidebar-patient-drop-down-component>
         </div>
     </div>
 
