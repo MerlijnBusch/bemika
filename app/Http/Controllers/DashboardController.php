@@ -103,34 +103,38 @@ class DashboardController extends Controller
 
     /**
      * @param $id
+     * @return Factory|View
      */
     public function patientProfile($id){
         $patient = Patient::find($id);
-        dd($patient);
+        return view('partials.Dashboard.Patient.profile', ['patient' => $patient]);
     }
 
     /**
      * @param $id
+     * @return Factory|View
      */
     public function patientTasks($id){
         $patient = Patient::find($id);
-        dd($patient);
+        return view('partials.Dashboard.Patient.tasks', ['patient' => $patient]);
     }
 
     /**
      * @param $id
+     * @return Factory|View
      */
     public function patientCalender($id){
         $patient = Patient::find($id);
-        dd($patient);
+        return view('partials.Dashboard.Patient.calender', ['patient' => $patient]);
     }
 
     /**
      * @param $id
+     * @return Factory|View
      */
     public function patientSummary($id){
         $patient = Patient::find($id);
-        dd($patient);
+        return view('partials.Dashboard.Patient.summary', ['patient' => $patient]);
     }
 
 }
