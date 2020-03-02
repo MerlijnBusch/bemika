@@ -7,8 +7,12 @@
 //Custom css
 @import "layouts/main";
 @import "layouts/sidebar";
+@import "layouts/navbar";
+
 @import "dashboard/dashboard";
+
 @import "activity/create";
 @import "activity/edit";
+
 @import "patient/create";
 @import "patient/edit";

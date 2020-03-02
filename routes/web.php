@@ -20,3 +20,6 @@ Route::post('/patient/store', 'PatientController@store')->name('patient.store');
 
 Route::get('/activity/create', 'ActivityController@create')->name('activity.create');
 Route::post('/activity/store', 'ActivityController@store')->name('activity.store');
+
+Route::get('/user/settings/profile', 'UserController@index')->name('user.profile');
+Route::post('/user/settings/language', 'UserController@setLanguage')->name('user.setLanguage');

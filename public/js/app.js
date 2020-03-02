@@ -2020,14 +2020,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['patient'],
   data: function data() {
@@ -37508,82 +37500,59 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "dropdown" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "dropdown__content" }, [
-      _c("ul", [
-        _c("li", [
-          _c(
-            "a",
-            {
-              attrs: {
-                href: _vm.url + "/dashboard/patient/profile/" + _vm.patient.id
-              }
-            },
-            [_vm._v("User profile")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c(
-            "a",
-            {
-              attrs: {
-                href: _vm.url + "/dashboard/patient/tasks/" + _vm.patient.id
-              }
-            },
-            [_vm._v("Tasks")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c(
-            "a",
-            {
-              attrs: {
-                href: _vm.url + "/dashboard/patient/calender/" + _vm.patient.id
-              }
-            },
-            [_vm._v("Calendar")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c(
-            "a",
-            {
-              attrs: {
-                href: _vm.url + "/dashboard/patient/summary/" + _vm.patient.id
-              }
-            },
-            [_vm._v("Summary")]
-          )
-        ])
+  return _c("div", [
+    _c("ul", [
+      _c("li", [
+        _c(
+          "a",
+          {
+            attrs: {
+              href: _vm.url + "/dashboard/patient/profile/" + _vm.patient.id
+            }
+          },
+          [_vm._v("User profile")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c(
+          "a",
+          {
+            attrs: {
+              href: _vm.url + "/dashboard/patient/tasks/" + _vm.patient.id
+            }
+          },
+          [_vm._v("Tasks")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c(
+          "a",
+          {
+            attrs: {
+              href: _vm.url + "/dashboard/patient/calender/" + _vm.patient.id
+            }
+          },
+          [_vm._v("Calendar")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("li", [
+        _c(
+          "a",
+          {
+            attrs: {
+              href: _vm.url + "/dashboard/patient/summary/" + _vm.patient.id
+            }
+          },
+          [_vm._v("Summary")]
+        )
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "dropdown__header" }, [
-      _c("span", [_vm._v("Header")]),
-      _vm._v(" text\n        "),
-      _c("i", {
-        staticClass: "fa fa-angle-down",
-        attrs: { "aria-hidden": "true" }
-      }),
-      _vm._v(" "),
-      _c("i", {
-        staticClass: "fa fa-angle-up",
-        attrs: { "aria-hidden": "true" }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
