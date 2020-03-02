@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 /**
@@ -50,6 +51,10 @@ class User extends Authenticatable
     }
 
     static public function setLanguage($lang){
+
+        $user = User::find(Auth::id());
+        $user->lang = $lang;
+        $user->update();
 
         Session::put('applocale', $lang);
 
