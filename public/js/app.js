@@ -1975,18 +1975,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
-      toggleDropDownBoolean: false
+      toggleDropDownBooleans: [null]
     };
   },
   mounted: function mounted() {
     this.$store.dispatch('fetchPatients');
-    this.toggleDropDownBoolean = false;
+  },
+  watch: {
+    patients: function patients() {
+      this.toggleDropDownBooleans = new Array(this.patients.length);
+
+      for (var i = 0; i < this.toggleDropDownBooleans.length; i++) {
+        this.toggleDropDownBooleans[i] = false;
+      }
+    }
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['patients'])),
   methods: {
-    toggleDropdown: function toggleDropdown(event) {
-      this.toggleDropDownBoolean = !this.toggleDropDownBoolean;
-      console.log(this.toggleDropDownBoolean);
+    toggleDropdown: function toggleDropdown(index) {
+      this.toggleDropDownBooleans[index] = !this.toggleDropDownBooleans[index];
+      this.$forceUpdate(); // console.log(this.toggleDropDownBooleans[0])
     }
   }
 });
@@ -37439,7 +37447,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    _vm._l(_vm.patients, function(patient) {
+    _vm._l(_vm.patients, function(patient, index) {
       return _c(
         "div",
         [
@@ -37448,14 +37456,21 @@ var render = function() {
             {
               on: {
                 click: function($event) {
-                  return _vm.toggleDropdown($event)
+                  return _vm.toggleDropdown(index)
                 }
               }
             },
-            [_vm._v(_vm._s(patient.name))]
+            [
+              _vm._v(
+                _vm._s(patient.name) +
+                  " " +
+                  _vm._s(_vm.toggleDropDownBooleans[index]) +
+                  " "
+              )
+            ]
           ),
           _vm._v(" "),
-          _vm.toggleDropDownBoolean
+          _vm.toggleDropDownBooleans[index]
             ? _c("sidebar-patient-drop-down-component")
             : _vm._e()
         ],
@@ -51213,8 +51228,8 @@ var state = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/merlijn/PhpstormProjects/dashboard-robin-assistant/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/merlijn/PhpstormProjects/dashboard-robin-assistant/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\timhu\Desktop\bemika\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\timhu\Desktop\bemika\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

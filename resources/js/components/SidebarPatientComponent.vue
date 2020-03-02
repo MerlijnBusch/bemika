@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div v-for="patient in patients">
-            <div @click="toggleDropdown($event)">{{patient.name}}</div>
-            <sidebar-patient-drop-down-component v-if="toggleDropDownBoolean"></sidebar-patient-drop-down-component>
+        <div v-for="(patient, index) in patients">
+            <div @click="toggleDropdown(index)">{{patient.name}} {{toggleDropDownBooleans[index]}} </div>
+            <sidebar-patient-drop-down-component v-if="toggleDropDownBooleans[index]"></sidebar-patient-drop-down-component>
         </div>
     </div>
 
@@ -19,12 +19,19 @@
         },
         data(){
             return{
-                toggleDropDownBoolean: false,
+                toggleDropDownBooleans: [null],
             }
         },
         mounted() {
             this.$store.dispatch('fetchPatients');
-            this.toggleDropDownBoolean = false;
+        },
+        watch:{
+            patients() {
+                this.toggleDropDownBooleans = new Array(this.patients.length);
+                for(let i = 0; i < this.toggleDropDownBooleans.length; i++){
+                    this.toggleDropDownBooleans[i] = false;
+                }
+            }
         },
         computed: {
             ...mapGetters([
@@ -32,9 +39,10 @@
             ])
         },
         methods: {
-            toggleDropdown (event) {
-                this.toggleDropDownBoolean = !this.toggleDropDownBoolean;
-                console.log(this.toggleDropDownBoolean);
+            toggleDropdown (index) {
+                this.toggleDropDownBooleans[index] = !this.toggleDropDownBooleans[index];
+                this.$forceUpdate();
+                // console.log(this.toggleDropDownBooleans[0])
             }
         }
     }
