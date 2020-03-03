@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Session;
  * @property string name
  * @property string email
  * @property string password
+ * @property string lang
+ * @property boolean active
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -32,7 +34,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'active'
     ];
 
     /**

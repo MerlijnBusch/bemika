@@ -24,17 +24,13 @@ class AddFakeDataToDatabase extends Migration
             Log::debug('debug is true and adding fake data to database');
 
             //Create fake user begeleider
-            $firstUser = new User;
-            $firstUser->name = 'Johan';
-            $firstUser->email = 'Johan@example.com';
-            $firstUser->password = Hash::make('password');
-            $firstUser->save();
-
-            $secondUser = new User;
-            $secondUser->name = 'Michail';
-            $secondUser->email = 'Michail@example.com';
-            $secondUser->password = Hash::make('password');
-            $secondUser->save();
+            $user = new User;
+            $user->name = 'Johan';
+            $user->email = 'Johan@example.com';
+            $user->password = Hash::make('password');
+            $user->email_verified_at = Carbon::now();
+            $user->active = true;
+            $user->save();
 
             //create fake activities for patient
             for($i = 0; $i < 3; $i++){
@@ -50,7 +46,7 @@ class AddFakeDataToDatabase extends Migration
                 $activity = new Patient;
                 $activity->name = 'some Patient name ' . $i;
                 $activity->color_code = '#' . str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);;
-                $activity->user_id = random_int(1,2);
+                $activity->user_id = 1;
                 $activity->save();
             }
 

@@ -1,20 +1,38 @@
-html, body, #app{
+html, body, #app {
     height: 100%;
     margin: 0
 }
 
-.layouts-main-container{
+.layouts-main-container {
     display: flex;
     flex-direction: row;
     height: 100%;
 }
 
-.layouts-main-container-sidebar{
+.layouts-main-container-sidebar {
     width: 232px;
     background: red;
 }
 
-.layouts-main-container-content{
+.layouts-main-container-content {
     flex: 1;
     background: yellow;
+}
+
+.notify-offline-container {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px;
+    z-index: 100;
+}
+
+.notify-offline-text-container {
+    padding: 12px;
+    background: #d50000;
+    border-radius: 8px;
+    color: white;
 }

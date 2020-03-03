@@ -9,15 +9,11 @@
     <title>{{env('APP_NAME')}} @yield('title')</title>
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    @yield('css')
 </head>
 <body>
 <div id="app">
-    <div id="offline_popup" style="display: none">
-        <h1>your offline</h1>
-    </div>
 
-    @include('partials.error')
+    @include('layouts.partials.error')
 
     @include('layouts.navbar')
 
@@ -36,12 +32,6 @@
 </div>
 @yield('js')
 <script async src="{{mix('js/app.js')}}"></script>
-<script>
-    setInterval(() => {
-        if(!navigator.onLine) document.getElementById('offline_popup').style.display = 'block';
-        else document.getElementById('offline_popup').style.display = 'none';
-    }, 2500) //every 2500 sec check if user has internet connection
-</script>
 </body>
 </html>
 

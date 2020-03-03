@@ -1,7 +1,7 @@
 <nav class="layouts-nav">
     <a href="{{route('dashboard')}}" class="layouts-nav-app-name">
         {{env('APP_NAME')}}
-    </>
+    </a>
 
     <div class="layouts-nav-icon-container">
         <a href="{{route('user.profile')}}" class="layouts-nav-user">
