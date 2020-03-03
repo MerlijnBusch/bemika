@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPatient extends Migration
+class CreatePatient extends Migration
 {
     /**
      * Run the migrations.
@@ -22,7 +22,11 @@ class AddPatient extends Migration
                 ->on('users')
                 ->onDelete('cascade');
             $table->string('name');
+            $table->string('gender')->nullable();
+            $table->string('lang')->nullable();
+            $table->date('birthday')->nullable();
             $table->string('color_code');
+            $table->longText('panic')->nullable();
             $table->timestamps();
         });
     }
@@ -34,8 +38,6 @@ class AddPatient extends Migration
      */
     public function down()
     {
-        Schema::enableForeignKeyConstraints();
         Schema::dropIfExists('patient');
-        Schema::disableForeignKeyConstraints();
     }
 }

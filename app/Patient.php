@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property string name
+ * @property string gender
+ * @property string lang
+ * @property string birthday
  * @property string color_code
  * @property int user_id
  */
@@ -20,7 +23,7 @@ class Patient extends Model
     protected $table = 'patient';
 
     protected $fillable = [
-        'name', 'color_code', 'user_id',
+        'name', 'gender', 'lang', 'birthday', 'color_code', 'user_id',
     ];
 
     public function user(){

@@ -34,8 +34,6 @@ class CreateTaskBelongToActivity extends Migration
      */
     public function down()
     {
-        Schema::enableForeignKeyConstraints();
         Schema::dropIfExists('task_belong_to_activity');
-        Schema::disableForeignKeyConstraints();
     }
 }

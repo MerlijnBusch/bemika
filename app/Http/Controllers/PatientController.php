@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Patient;
+use App\Rules\AppLocaleLanguage;
 use App\Rules\ColorCode;
+use App\Rules\Gender;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -66,12 +68,18 @@ class PatientController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required','max:255'],
+            'lang' => [new AppLocaleLanguage],
+            'gender' => [new Gender],
+            'birthday' => ['date'],
             'color_code' => [new ColorCode, 'required'],
         ]);
 
         $patient = new Patient;
 
         $patient->name = $validated['name'];
+        $patient->lang = $validated['lang'];
+        $patient->gender = $validated['gender'];
+        $patient->birthday = $validated['birthday'];
         $patient->color_code = $validated['color_code'];
         $patient->user_id = Auth::id();
 
@@ -95,24 +103,44 @@ class PatientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Patient $patient
-     * @return Response
+     * @param $id
+     * @return Factory|View
      */
-    public function edit(Patient $patient)
+    public function edit($id)
     {
-        //
+        $patient = Patient::find($id);
+
+        return view('partials.Patient.edit', ['patient' => $patient]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param patient $patient
+     * @param $id
      * @return Response
      */
-    public function update(Request $request, patient $patient)
+    public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required','max:255'],
+            'lang' => [new AppLocaleLanguage],
+            'gender' => [new Gender],
+            'birthday' => ['date'],
+            'color_code' => [new ColorCode, 'required'],
+        ]);
+
+        $patient = Patient::find($id);
+
+        $patient->name = $validated['name'];
+        $patient->lang = $validated['lang'];
+        $patient->gender = $validated['gender'];
+        $patient->birthday = $validated['birthday'];
+        $patient->color_code = $validated['color_code'];
+
+        $patient->update();
+
+        return redirect()->route('dashboard');
     }
 
     /**
