@@ -27,6 +27,14 @@ class RouteServiceProvider extends ServiceProvider
     const HOME = '/dashboard';
 
     /**
+     * The path to the "home" route for your application.
+     *
+     * @var string
+     */
+    const verified = '/verified';
+
+
+    /**
      * Define your route model bindings, pattern filters, etc.
      *
      * @return void

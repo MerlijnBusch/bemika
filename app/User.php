@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Session;
  * @property string email
  * @property string password
  */
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -23,7 +23,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'lang',
     ];
 
     /**
