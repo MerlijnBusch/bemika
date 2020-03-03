@@ -55,7 +55,7 @@ class PatientController extends Controller
      */
     public function create()
     {
-        return view('partials.Patient.create');
+        return view('partials.Patient.form', ['type' => 'Create']);
     }
 
     /**
@@ -110,7 +110,7 @@ class PatientController extends Controller
     {
         $patient = Patient::find($id);
 
-        return view('partials.Patient.edit', ['patient' => $patient]);
+        return view('partials.Patient.form', ['patient' => $patient, 'type' => 'Edit']);
     }
 
     /**
