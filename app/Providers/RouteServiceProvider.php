@@ -27,7 +27,7 @@ class RouteServiceProvider extends ServiceProvider
     const HOME = '/dashboard';
 
     /**
-     * The path to the "home" route for your application.
+     * The path to verified controller to set account to active and put in password.
      *
      * @var string
      */
