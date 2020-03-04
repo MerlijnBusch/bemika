@@ -9,8 +9,8 @@
     <form method="post" action="{{ route('user.setLanguage') }}">
         @method('POST')
         @csrf
-        <label>Set language</label>
-        <input type="text" name="lang" value="{{ old('lang') }}" />
+        <label>{{trans('label.set_language')}}</label>
+        {{ Form::select('lang', Config::get('languages'), old('lang', $user->lang ?? ''), ['class' => '']) }}
         <button type="submit">Submit</button>
     </form>
 @stop

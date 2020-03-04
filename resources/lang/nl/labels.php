@@ -12,5 +12,6 @@ return [
     'go_to_dashboard' => 'Ga naar de dashboard',
     'go_to_verify' => 'U moet nog u account activeren',
     'logout' => 'Log uit',
+    'set_language' => 'Zet u taal',
 
 ];

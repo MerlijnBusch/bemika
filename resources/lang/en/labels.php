@@ -12,5 +12,6 @@ return [
     'go_to_dashboard' => 'Go to the dashboard',
     'go_to_verify' => 'You still need to activate your account',
     'logout' => 'Logout',
+    'set_language' => 'Set language:',
 
 ];
