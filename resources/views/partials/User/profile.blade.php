@@ -11,7 +11,7 @@
         @csrf
         <label>{{trans('label.set_language')}}</label>
         {{ Form::select('lang', Config::get('languages'), old('lang', $user->lang ?? ''), ['class' => '']) }}
-        <button type="submit">Submit</button>
+        {{ Form::submit('Save', ['name' => 'submit'], ['class' => '']) }}
     </form>
 @stop
 
