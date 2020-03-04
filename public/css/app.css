@@ -115,8 +115,6 @@ body,
 }
 
 .layouts-app-navigation-main {
-  height: 100%;
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-content: center;
