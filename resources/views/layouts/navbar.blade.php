@@ -10,6 +10,12 @@
         </a>
         <a href="#"><i class="material-icons layouts-nav-icon">camera_roll</i></a>
         <a href="#"><i class="layouts-nav-icon">?</i></a>
-        <a href="#"><i class="material-icons layouts-nav-icon">print</i></a>
+        <a class="dropdown-item" href="{{ route('logout') }}" title="{{trans('labels.logout')}}"
+           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <i class="material-icons layouts-nav-icon">subdirectory_arrow_right</i>
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
     </div>
 </nav>

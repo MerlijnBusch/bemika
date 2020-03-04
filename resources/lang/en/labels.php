@@ -11,5 +11,6 @@ return [
     'go_to_login' => 'Go to the login',
     'go_to_dashboard' => 'Go to the dashboard',
     'go_to_verify' => 'You still need to activate your account',
+    'logout' => 'Logout',
 
 ];

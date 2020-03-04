@@ -11,4 +11,6 @@ return [
     'go_to_login' => 'Ga naar de login',
     'go_to_dashboard' => 'Ga naar de dashboard',
     'go_to_verify' => 'U moet nog u account activeren',
+    'logout' => 'Log uit',
+
 ];
