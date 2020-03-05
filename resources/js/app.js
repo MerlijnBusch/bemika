@@ -10,6 +10,10 @@ window.Vue = require('vue');
 
 import store from './store/index'
 
+import DayFilter from "./DashboardFilters/DayFilter";
+import WeekFilter from "./DashboardFilters/WeekFilter";
+import MonthFilter from "./DashboardFilters/MonthFilter";
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
