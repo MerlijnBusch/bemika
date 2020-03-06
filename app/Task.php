@@ -22,4 +22,10 @@ class Task extends Model
     protected $fillable = [
         'title', 'description', 'step_id',
     ];
+
+    public function activity(){
+
+        //
+
+    }
 }

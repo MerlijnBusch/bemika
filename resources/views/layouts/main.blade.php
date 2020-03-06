@@ -27,6 +27,10 @@
         </main>
     </div>
 
+    @if(Auth::user()->disable_payment_info == false)
+        @include('layouts.partials.payment-footer')
+    @endif
+
 
     @include('layouts.footer')
 </div>

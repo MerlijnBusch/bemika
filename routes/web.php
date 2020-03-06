@@ -26,3 +26,6 @@ Route::post('/user/settings/language', 'UserController@setLanguage')->name('user
 
 Route::get('/verified', 'VerifiedController@index')->name('verified');
 Route::post('/verified', 'VerifiedController@store')->name('verified.store');
+
+
+Route::post('/hide-payment-footer', 'PaymentController@hidePaymentFooter')->name('payment.footer');

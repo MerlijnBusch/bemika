@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->boolean('active')->default(false);
             $table->string('password')->nullable();
+            $table->bigInteger('payment_id')->default(0);
+            $table->boolean('disable_payment_info')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
