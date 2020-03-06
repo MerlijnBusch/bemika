@@ -6,6 +6,7 @@ use App\Patient;
 use App\Rules\AppLocaleLanguage;
 use App\Rules\ColorCode;
 use App\Rules\Gender;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -66,6 +67,10 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
+        if (Auth::user()->cannot('create', Patient::class)) {
+            return back()->withErrors('Your subscription doesnt allow to add more patients')->withInput();
+        }
+
         $validated = $request->validate([
             'name' => ['required','max:255'],
             'lang' => [new AppLocaleLanguage],
@@ -118,7 +123,7 @@ class PatientController extends Controller
      *
      * @param Request $request
      * @param $id
-     * @return Response
+     * @return RedirectResponse
      */
     public function update(Request $request, $id)
     {
