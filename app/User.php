@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Session;
  * @property string email
  * @property string password
  * @property string lang
+ * @property string payment_id
  * @property boolean active
  */
 class User extends Authenticatable implements MustVerifyEmail

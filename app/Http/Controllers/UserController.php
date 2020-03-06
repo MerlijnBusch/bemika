@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Rules\AppLocaleLanguage;
 use App\User;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Config;
 use Illuminate\View\View;
 
 class UserController extends Controller
@@ -25,7 +23,10 @@ class UserController extends Controller
      */
     public function index(){
 
-        return view('partials.User.profile', ['user' => Auth::user()]);
+        $user = User::find(Auth::id());
+        $payment = DB::table('payment_options')->get();
+
+        return view('partials.User.profile', ['user' => $user, 'payments' => $payment]);
 
     }
 
