@@ -16,13 +16,16 @@ class CreateTaskBelongToActivity extends Migration
         Schema::create('task_belong_to_activity', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('activity_id');
+            $table->unsignedBigInteger('task_id');
+
             $table->foreign('activity_id')
                 ->references('id')
                 ->on('activity')
                 ->onDelete('cascade');
-            $table->unsignedBigInteger('step_id');
-            $table->string('title');
-            $table->longText('description');
+            $table->foreign('task_id')
+                ->references('id')
+                ->on('task')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

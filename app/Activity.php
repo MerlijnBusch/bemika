@@ -24,12 +24,6 @@ class Activity extends Model
         'title', 'description', 'image',
     ];
 
-    public function task(){
-
-        return $this->hasMany('App\Task', 'activity_id');
-
-    }
-
     public function plannedActivities(){
 
         return $this->hasMany('App\PlannedActivities', 'activity_id');

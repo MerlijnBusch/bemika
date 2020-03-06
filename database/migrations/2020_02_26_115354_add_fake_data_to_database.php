@@ -51,11 +51,10 @@ class AddFakeDataToDatabase extends Migration
             }
 
             //create fake task for activities
-            for($i = 0; $i < 12; $i++){
+            for($i = 0; $i < 40; $i++){
                 $task = new Task;
                 $task->title = 'some Step title ' . $i;
                 $task->description = 'nce the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset she';
-                $task->activity_id = random_int(1,3);
                 $task->step_id = $i;
                 $task->save();
             }
@@ -64,6 +63,12 @@ class AddFakeDataToDatabase extends Migration
             for($i = 0; $i < 8; $i++){ // optimize this code
                 DB::table('foreign_activity_belongs_to_patient')->insert([
                     'activity_id' => random_int(1,3), 'patient_id' => random_int(1,4), 'planned_date' => Carbon::now()->subMinutes(rand(1, 55))
+                ]);
+            }
+
+            for($i = 0; $i < 40; $i++){ // optimize this code
+                DB::table('task_belong_to_activity')->insert([
+                    'activity_id' => random_int(1,3), 'task_id' => random_int(1,40)
                 ]);
             }
 

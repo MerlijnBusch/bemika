@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property string title
  * @property string description
- * @property int activity_id
  * @property int step_id
  */
 
@@ -18,15 +17,9 @@ class Task extends Model
      *
      * @var string
      */
-    protected $table = 'task_belong_to_activity';
+    protected $table = 'task';
 
     protected $fillable = [
-        'title', 'description', 'activity_id', 'step_id',
+        'title', 'description', 'step_id',
     ];
-
-    public function activity(){
-
-        return $this->belongsTo('App\Activity');
-
-    }
 }
