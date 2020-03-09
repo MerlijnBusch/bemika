@@ -4,6 +4,13 @@
     </a>
 
     <div class="layouts-nav-icon-container">
+        <form method="post" action="{{ route('user.setLanguage') }}">
+            @method('POST')
+            @csrf
+            <label>{{trans('labels.set_language')}}</label>
+            {{ Form::select('lang', Config::get('languages'), old('lang', $user->lang ?? ''), ['class' => '']) }}
+            {{ Form::submit('Save', ['name' => 'submit'], ['class' => '']) }}
+        </form>
         <a href="{{route('user.profile')}}" class="layouts-nav-user">
             {{trans('labels.welcome')}}, {{Auth::user()->name}}
             <i class="material-icons">person</i>
