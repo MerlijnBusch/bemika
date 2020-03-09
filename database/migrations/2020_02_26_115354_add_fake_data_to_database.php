@@ -30,6 +30,7 @@ class AddFakeDataToDatabase extends Migration
             $user->password = Hash::make('password');
             $user->email_verified_at = Carbon::now();
             $user->active = true;
+            $user->payment_id = 0;
             $user->save();
 
             //create fake activities for patient

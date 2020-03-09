@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -15,7 +16,8 @@ use Illuminate\Support\Facades\Session;
  * @property string lang
  * @property string payment_id
  * @property boolean active
- */
+ * @property Carbon $email_verified_at;
+*/
 class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
