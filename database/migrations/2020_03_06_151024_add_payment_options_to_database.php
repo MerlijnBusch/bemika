@@ -15,8 +15,8 @@ class AddPaymentOptionsToDatabase extends Migration
     public function up()
     {
         DB::table('payment_options')->insert([
-            ['title' => 'Default', 'price' => 'Free', 'description' => 'maximum upto 5 patients'],
-            ['title' => 'Premium', 'price' => '$20 a month', 'description' => 'unlimited patient'],
+            ['id' => 0, 'title' => 'Default', 'price' => 'Free', 'description' => 'maximum upto 5 patients'],
+            ['id' => 1, 'title' => 'Premium', 'price' => '$20 a month', 'description' => 'unlimited patient'],
         ]);
     }
 
