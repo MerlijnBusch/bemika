@@ -4,8 +4,6 @@
 
 @section('content')
 
-    <h1>user profile</h1>
-
     <div class="user-profile-container">
         <div class="user-profile-form">
             {{ Form::model($user, ['route' => ['user.profile.update', $user->id], 'method' => 'patch']) }}
@@ -63,7 +61,6 @@
                 <p>{{trans('labels.subscription_start')}}</p>
             </div>
             <hr>
-
             <div>{{trans('labels.subscription_current_plan')}}: <b>{{$payment->title}}</b></div>
         </div>
     </div>
