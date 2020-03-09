@@ -8,7 +8,7 @@
 
     <div class="user-profile-container">
         <div class="user-profile-form">
-            {{ Form::model($user, ['route' => ['patient.update', $user->id], 'method' => 'patch']) }}
+            {{ Form::model($user, ['route' => ['user.profile.update', $user->id], 'method' => 'patch']) }}
             {{ Form::text('name', old('name', $user->name ?? ''), ['class' => 'form-field', 'placeholder' => trans('labels.form_name')]) }}
             {{ Form::Email('email', old('email', $user->email ?? ''), ['class' => 'form-field', 'placeholder' => trans('labels.form_email')]) }}
             {{ Form::select('lang', Config::get('languages'), old('lang', $user->lang ?? ''), ['class' => 'form-field']) }}

@@ -32,6 +32,25 @@ class UserController extends Controller
 
     }
 
+    public function store(Request $request, $id){
+
+        $validated = $request->validate([
+            'name' => ['string', 'max:255'],
+            'email' => ['string', 'email', 'max:255'],
+            'lang' => [new AppLocaleLanguage],
+        ]);
+
+        $user = User::find($id);
+
+        $user->name = $validated['name'];
+        $user->email = $validated['email'];
+        $user->lang = $validated['lang'];
+
+        $user->update();
+
+        return redirect()->back();
+    }
+
     /**
      * @param Request $request
      * @return RedirectResponse

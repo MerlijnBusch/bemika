@@ -22,6 +22,7 @@ Route::get('/activity/create', 'ActivityController@create')->name('activity.crea
 Route::post('/activity/store', 'ActivityController@store')->name('activity.store');
 
 Route::get('/user/settings/profile', 'UserController@index')->name('user.profile');
+Route::patch('/user/settings/profile/update/{id}', 'UserController@store')->name('user.profile.update');
 Route::post('/user/settings/language', 'UserController@setLanguage')->name('user.setLanguage');
 
 Route::get('/verified', 'VerifiedController@index')->name('verified');
