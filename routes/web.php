@@ -29,3 +29,12 @@ Route::post('/verified', 'VerifiedController@store')->name('verified.store');
 
 
 Route::post('/hide-payment-footer', 'PaymentController@hidePaymentFooter')->name('payment.footer');
+
+
+Route::get('/placeholder', function () {
+    return redirect()->back();
+})->name('placeholder');
+
+Route::post('/placeholder', function () {
+    return redirect()->back();
+})->name('placeholder.post');
