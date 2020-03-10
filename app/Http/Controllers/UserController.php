@@ -63,6 +63,6 @@ class UserController extends Controller
 
         User::setLanguage($validated['lang']);
 
-        return redirect()->route('user.profile');
+        return redirect()->back();
     }
 }
