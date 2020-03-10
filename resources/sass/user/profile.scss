@@ -1,10 +1,62 @@
-.user-profile-payment {
-    width: 100%;
+.user-profile-container {
     display: flex;
-    flex-direction: row;
+    width: 100%;
 }
 
-.user-profile-payment-inner {
-    border: 2px solid;
-    padding: 4px;
+.user-profile-payment-container {
+    width: 50%;
+    margin: 12px;
+    background: #eaeaea;
+    padding: 12px;
+}
+
+.user-profile-form {
+    width: 50%;
+    margin: 12px;
+}
+
+.user-profile-form-payment {
+    display: flex;
+    align-content: center;
+}
+
+.user-profile-form-button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+}
+
+.user-profile-list-container {
+    text-decoration: unset;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-profile-list-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.user-profile-price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-profile-price-header {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.user-profile-form-payment-subscribe-text {
+    margin-bottom: 4px;
+    border-radius: 5px;
+    padding: 8px;
+    background: lightgreen;
+}
+
+.user-profile-form-payment-subscribe-text * {
+    color: #438543;
 }
