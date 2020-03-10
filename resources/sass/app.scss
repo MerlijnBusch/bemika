@@ -1,6 +1,14 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
+@font-face {
+  font-family: gilroy;
+  src: url('/fonts/Gilroy-light.otf');
+}
+html{
+  font-family: gilroy;
+}
+
 // Variables
 @import 'variables';
 
