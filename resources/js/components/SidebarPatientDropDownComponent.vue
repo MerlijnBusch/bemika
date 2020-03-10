@@ -1,16 +1,14 @@
 <template>
-    <div>
-        <ul>
-            <li><a :href="`${url}/dashboard/patient/profile/${patient.id}`">User profile</a></li>
-            <li><a :href="`${url}/dashboard/patient/tasks/${patient.id}`">Tasks</a></li>
-            <li><a :href="`${url}/dashboard/patient/calender/${patient.id}`">Calendar</a></li>
-            <li><a :href="`${url}/dashboard/patient/summary/${patient.id}`">Summary</a></li>
+        <ul class="person-list" :class="{'person-hidden-list' : !active}">
+            <li>ICON <a :href="`${url}/dashboard/patient/profile/${patient.id}`">User profile</a></li>
+            <li>ICON <a :href="`${url}/dashboard/patient/tasks/${patient.id}`">Tasks</a></li>
+            <li>ICON <a :href="`${url}/dashboard/patient/calender/${patient.id}`">Calendar</a></li>
+            <li>ICON <a :href="`${url}/dashboard/patient/summary/${patient.id}`">Summary</a></li>
         </ul>
-    </div>
 </template>
 <script>
     export default {
-        props: ['patient'],
+        props: ['patient','active'],
         data(){
             return {
                 url: window.location.origin

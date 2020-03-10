@@ -1981,6 +1981,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2038,10 +2041,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['patient'],
+  props: ['patient', 'active'],
   data: function data() {
     return {
       url: window.location.origin
@@ -38200,46 +38201,64 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "sidebar" },
     [
-      _c("div", { staticClass: "layouts-sidebar-add-person" }, [
-        _c(
-          "i",
-          { staticClass: "material-icons layouts-sidebar-add-person-icon" },
-          [_vm._v("person_add")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "layouts-sidebar-add-person-url",
-            attrs: { href: "" + "/patient/create" }
-          },
-          [_vm._v("Add Patient")]
-        )
-      ]),
+      _c(
+        "a",
+        {
+          staticClass: "sidebar-add-person",
+          attrs: { href: "" + "/patient/create" }
+        },
+        [
+          _c("i", { staticClass: "material-icons sidebar-add-person-icon" }, [
+            _vm._v("person_add")
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "sidebar-add-person-text" }, [
+            _vm._v("Add Patient")
+          ])
+        ]
+      ),
       _vm._v(" "),
       _vm._l(_vm.patients, function(patient, index) {
         return _c(
           "div",
+          {
+            staticClass: "sidebar-person",
+            class: { dropDownOpen: _vm.toggleDropDownBooleans[index] }
+          },
           [
             _c(
-              "div",
+              "button",
               {
-                class: { dropDownOpen: _vm.toggleDropDownBooleans[index] },
+                staticClass: "sidebar-person-button",
                 on: {
                   click: function($event) {
                     return _vm.toggleDropdown(index)
                   }
                 }
               },
-              [_vm._v(_vm._s(patient.name))]
+              [
+                _c("div", {
+                  staticClass: "sidebar-person-color",
+                  class: {
+                    "sidebar-person-open": _vm.toggleDropDownBooleans[index]
+                  },
+                  style: { backgroundColor: patient.color_code }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "sidebar-person-text" }, [
+                  _vm._v(_vm._s(patient.name))
+                ])
+              ]
             ),
             _vm._v(" "),
-            _vm.toggleDropDownBooleans[index]
-              ? _c("sidebar-patient-drop-down-component", {
-                  attrs: { patient: patient }
-                })
-              : _vm._e()
+            _c("sidebar-patient-drop-down-component", {
+              attrs: {
+                active: _vm.toggleDropDownBooleans[index],
+                patient: patient
+              }
+            })
           ],
           1
         )
@@ -38270,9 +38289,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("ul", [
+  return _c(
+    "ul",
+    {
+      staticClass: "person-list",
+      class: { "person-hidden-list": !_vm.active }
+    },
+    [
       _c("li", [
+        _vm._v("ICON "),
         _c(
           "a",
           {
@@ -38285,6 +38310,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("li", [
+        _vm._v("ICON "),
         _c(
           "a",
           {
@@ -38297,6 +38323,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("li", [
+        _vm._v("ICON "),
         _c(
           "a",
           {
@@ -38309,6 +38336,7 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("li", [
+        _vm._v("ICON "),
         _c(
           "a",
           {
@@ -38319,8 +38347,8 @@ var render = function() {
           [_vm._v("Summary")]
         )
       ])
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

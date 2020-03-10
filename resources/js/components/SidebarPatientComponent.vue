@@ -1,12 +1,15 @@
 <template>
-    <div>
-        <div class="layouts-sidebar-add-person">
-            <i class="material-icons layouts-sidebar-add-person-icon">person_add</i>
-            <a class="layouts-sidebar-add-person-url" :href="`${'/patient/create'}`">Add Patient</a>
-        </div>
-        <div v-for="(patient, index) in patients">
-            <div @click="toggleDropdown(index)" :class="{dropDownOpen: toggleDropDownBooleans[index]}">{{patient.name}}</div>
-            <sidebar-patient-drop-down-component v-if="toggleDropDownBooleans[index]" :patient="patient"></sidebar-patient-drop-down-component>
+    <div class="sidebar">
+        <a class="sidebar-add-person" :href="`${'/patient/create'}`">
+            <i class="material-icons sidebar-add-person-icon">person_add</i>
+            <span class="sidebar-add-person-text">Add Patient</span>
+        </a>
+        <div class="sidebar-person" :class="{dropDownOpen: toggleDropDownBooleans[index]}" v-for="(patient, index) in patients">
+            <button class="sidebar-person-button" @click="toggleDropdown(index)" >
+                <div class="sidebar-person-color" :style="{backgroundColor: patient.color_code}" :class="{'sidebar-person-open': toggleDropDownBooleans[index]}"></div>
+                <div class="sidebar-person-text">{{patient.name}}</div>
+            </button>
+            <sidebar-patient-drop-down-component :active="toggleDropDownBooleans[index]" :patient="patient"></sidebar-patient-drop-down-component>
         </div>
     </div>
 </template>

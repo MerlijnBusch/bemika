@@ -1,20 +1,92 @@
-.layouts-sidebar-add-person {
+.sidebar{
+    background-color: $bemika-blue;
+    height: 100%;
+    overflow-y: auto;
+    padding-top: $padding-small;
+}
+.sidebar-add-person {
     background: white;
+    text-decoration: none;
     padding: 20px;
     display: flex;
     align-items: center;
+    &:hover{
+        cursor: pointer;
+    }
 }
 
-.layouts-sidebar-add-person-icon {
+.sidebar-add-person-icon {
     color: #4297b3;
     font-size: 34px;
     margin-right: 12px;
 }
 
-.layouts-sidebar-add-person-url {
+.sidebar-add-person-text {
     color: #4297b3;
     font-size: 24px;
     text-decoration: unset;
+}
+.sidebar-person{
+    border: none;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    background-image: linear-gradient(to right, $bemika-white 50%, $bemika-blue 50%);
+    background-size: 200%;
+    background-position: 100% 0;
+    color: $bemika-white;
+    border-bottom: solid 1px $bemika-white;
+    transition: background-position .3s ease-in-out;
+}
+.sidebar-person-text{
+    z-index: 1;
+    position: relative;
+}
+.dropDownOpen{
+  background-position: 0 0;
+}
+.sidebar-person-button{
+    background: transparent;
+    position: relative;
+    color: $bemika-white;
+    text-align: left;
+    width: 100%;
+    padding: $padding-medium $padding-big;
+    border: none;
+    ;
+}
+.sidebar-person-color{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: $padding-small;
+    z-index: 0;
+    transition: width .3s ease-in-out;
+}
+.sidebar-person-open{
+    width: 100%;
+}
+
+//person list
+.person-list{
+    max-height: 600px;
+    margin: 0;
+    overflow: hidden;
+    transition: max-height .3s ease-in-out;
+    padding: 0 $padding-medium;
+    list-style: none;
+    > li {
+        color: $bemika-black;
+        padding: $padding-medium;
+        > a{
+            color: $bemika-black;
+            text-decoration: none;
+        }
+    }
+}
+.person-hidden-list{
+    max-height: 0;
 }
 
 

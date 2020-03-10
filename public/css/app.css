@@ -38,23 +38,104 @@ body,
   color: white;
 }
 
-.layouts-sidebar-add-person {
+.sidebar {
+  background-color: #5879BC;
+  height: 100%;
+  overflow-y: auto;
+  padding-top: 8px;
+}
+
+.sidebar-add-person {
   background: white;
+  text-decoration: none;
   padding: 20px;
   display: flex;
   align-items: center;
 }
 
-.layouts-sidebar-add-person-icon {
+.sidebar-add-person:hover {
+  cursor: pointer;
+}
+
+.sidebar-add-person-icon {
   color: #4297b3;
   font-size: 34px;
   margin-right: 12px;
 }
 
-.layouts-sidebar-add-person-url {
+.sidebar-add-person-text {
   color: #4297b3;
   font-size: 24px;
   text-decoration: unset;
+}
+
+.sidebar-person {
+  border: none;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  background-image: linear-gradient(to right, #FFFFFF 50%, #5879BC 50%);
+  background-size: 200%;
+  background-position: 100% 0;
+  color: #FFFFFF;
+  border-bottom: solid 1px #FFFFFF;
+  transition: background-position 0.3s ease-in-out;
+}
+
+.sidebar-person-text {
+  z-index: 1;
+  position: relative;
+}
+
+.dropDownOpen {
+  background-position: 0 0;
+}
+
+.sidebar-person-button {
+  background: transparent;
+  position: relative;
+  color: #FFFFFF;
+  text-align: left;
+  width: 100%;
+  padding: 16px 24px;
+  border: none;
+}
+
+.sidebar-person-color {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 8px;
+  z-index: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.sidebar-person-open {
+  width: 100%;
+}
+
+.person-list {
+  max-height: 600px;
+  margin: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  padding: 0 16px;
+  list-style: none;
+}
+
+.person-list > li {
+  color: #231F20;
+  padding: 16px;
+}
+
+.person-list > li > a {
+  color: #231F20;
+  text-decoration: none;
+}
+
+.person-hidden-list {
+  max-height: 0;
 }
 
 .layouts-nav {
