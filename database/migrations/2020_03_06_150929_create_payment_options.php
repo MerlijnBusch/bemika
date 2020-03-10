@@ -14,10 +14,8 @@ class CreatePaymentOptions extends Migration
     public function up()
     {
         Schema::create('payment_options', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->integer('id');
             $table->string('title');
-            $table->string('price');
-            $table->longText('description');
             $table->timestamps();
         });
     }

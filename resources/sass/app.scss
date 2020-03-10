@@ -1,10 +1,20 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
+@font-face {
+  font-family: gilroy;
+  src: url('/fonts/Gilroy-light.otf');
+}
+html{
+  font-family: gilroy;
+}
+
 // Variables
 @import 'variables';
 
 //Custom css
+@import "global";
+
 @import "layouts/main";
 @import "layouts/sidebar";
 @import "layouts/navbar";
@@ -15,6 +25,7 @@
 
 @import "activity/create";
 @import "activity/edit";
+@import "activity/index";
 
 @import "patient/create";
 @import "patient/edit";
