@@ -5,7 +5,7 @@
 @section('content')
 
 
-        <example-component :data="{{$data}}"></example-component>
+        <calendar :data="{{$data}}"></calendar>
 
 
 @stop
