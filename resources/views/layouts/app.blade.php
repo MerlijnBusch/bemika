@@ -17,12 +17,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div id="app" class='layouts-app'>
         <nav class="layouts-app-navigation">
             <div class="layouts-app-navigation-container">
-                <div class="layouts-app-navigation-list">
                         @guest
-                            <div class="{{(Route::currentRouteName() == 'login') ? 'layouts-app-navigation-item layouts-app-navigation-item-active' : 'layouts-app-navigation-item' }}">
+                            <!-- <div class="{{(Route::currentRouteName() == 'login') ? 'layouts-app-navigation-item layouts-app-navigation-item-active' : 'layouts-app-navigation-item' }}">
                                 <div class="layouts-app-navigation-link-container">
                                     <a class="{{(Route::currentRouteName() == 'login') ? 'layouts-app-navigation-link layouts-app-navigation-link-active' : 'layouts-app-navigation-link' }}" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </div>
@@ -36,9 +35,9 @@
                                     <span class="{{(Route::currentRouteName() == 'register') ? 'layouts-app-navigation-item-span' : '' }}"></span>
                                 </div>
 
-                            @endif
+                            @endif -->
+                            <img src="{{url('/logo-images/robinlogo.png')}}" alt="Logo Robin Assistant" class="layouts-app-nav-logo">
                         @endguest
-                    </div>
             </div>
         </nav>
 

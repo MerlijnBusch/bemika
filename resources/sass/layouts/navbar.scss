@@ -65,7 +65,22 @@
     padding: 8px 13px;
     font-weight: 900;
 }
+
 .layouts-nav-icon-container a{
     position: relative; 
     text-decoration: none;
+}
+
+.layouts-nav-form-language{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.layouts-nav-form-language label{
+    width: 205px;
+}
+
+.layouts-nav-form-language input, .layouts-nav-form-language select{
+    margin: 0;
 }

@@ -39,7 +39,7 @@ class DashboardController extends Controller
         if(Auth::check()){
             return redirect()->route('dashboard');
         }
-        return view('index');
+        return redirect()->route('login');
 
     }
 

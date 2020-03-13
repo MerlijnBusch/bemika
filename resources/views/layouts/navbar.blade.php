@@ -1,15 +1,14 @@
 <nav class="layouts-nav">
     <a href="{{route('dashboard')}}" class="layouts-nav-app-name">
-        <!-- {{env('APP_NAME')}} -->
         <img src="{{url('/logo-images/robinlogo.png')}}" alt="Logo Robin Assistant" class="layouts-nav-image-logo">
     </a>
     <div class="layouts-nav-set-language">
-        <form method="post" action="{{ route('user.setLanguage') }}">
+        <form method="post" action="{{ route('user.setLanguage') }}" class="layouts-nav-form-language" id="layouts-nav-form">
             @method('POST')
             @csrf
             <label>{{trans('labels.set_language')}}</label>
-            {{ Form::select('lang', Config::get('languages'), old('lang', $user->lang ?? ''), ['class' => '']) }}
-            {{ Form::submit('Save', ['name' => 'submit'], ['class' => '']) }}
+            {{ Form::select('lang', Config::get('languages'), old('lang', $user->lang ?? ''), ['class' => 'form-field', 'id' => 'layouts-nav-select', 'onchange' => "document.getElementById('layout-nav-form').submit()"]) }}
+            {{ Form::submit('Save', ['name' => 'submit', 'class' => 'button']) }}
         </form>
     </div>
     <div class="layouts-nav-icon-container">

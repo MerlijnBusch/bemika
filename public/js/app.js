@@ -52202,9 +52202,10 @@ function (_DashboardBaseFilter) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./store/index */ "./resources/js/store/index.js");
-/* harmony import */ var _DashboardFilters_DayFilter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DashboardFilters/DayFilter */ "./resources/js/DashboardFilters/DayFilter.js");
-/* harmony import */ var _DashboardFilters_WeekFilter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DashboardFilters/WeekFilter */ "./resources/js/DashboardFilters/WeekFilter.js");
-/* harmony import */ var _DashboardFilters_MonthFilter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DashboardFilters/MonthFilter */ "./resources/js/DashboardFilters/MonthFilter.js");
+/* harmony import */ var _functions_setLanguage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./functions/setLanguage */ "./resources/js/functions/setLanguage.js");
+/* harmony import */ var _DashboardFilters_DayFilter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DashboardFilters/DayFilter */ "./resources/js/DashboardFilters/DayFilter.js");
+/* harmony import */ var _DashboardFilters_WeekFilter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DashboardFilters/WeekFilter */ "./resources/js/DashboardFilters/WeekFilter.js");
+/* harmony import */ var _DashboardFilters_MonthFilter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DashboardFilters/MonthFilter */ "./resources/js/DashboardFilters/MonthFilter.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -52214,6 +52215,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
+
+var f = new _functions_setLanguage__WEBPACK_IMPORTED_MODULE_1__["default"]();
+f.addListener();
 
 
 
@@ -52496,6 +52500,51 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/functions/setLanguage.js":
+/*!***********************************************!*\
+  !*** ./resources/js/functions/setLanguage.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var setLanguage =
+/*#__PURE__*/
+function () {
+  function setLanguage() {
+    _classCallCheck(this, setLanguage);
+  }
+
+  _createClass(setLanguage, [{
+    key: "addListener",
+    value: function addListener() {
+      console.log('test');
+      var form = document.getElementById('layouts-nav-form');
+      var select = document.getElementById('layouts-nav-select');
+      console.log(select);
+      select.addEventListener('change', henk(), false);
+    }
+  }]);
+
+  return setLanguage;
+}();
+
+function henk() {
+  this.form.submit();
+  console.log('tkip');
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (setLanguage);
+
+/***/ }),
+
 /***/ "./resources/js/store/actions.js":
 /*!***************************************!*\
   !*** ./resources/js/store/actions.js ***!
@@ -52622,8 +52671,8 @@ var state = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/merlijn/PhpstormProjects/dashboard-robin-assistant/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/merlijn/PhpstormProjects/dashboard-robin-assistant/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Plug\Desktop\bemika\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Plug\Desktop\bemika\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
