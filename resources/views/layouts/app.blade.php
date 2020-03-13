@@ -44,6 +44,7 @@
 
         <main class="layouts-app-navigation-main">
             <div class="layouts-app-navigation-main-inner">
+                <img src="/logo-images/inlogImage.jpg" alt="" srcset="">
                 @yield('content')
             </div>
         </main>

@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@font-face {
   font-family: gilroy;
-  src: url("/fonts/Gilroy-light.otf");
+  src: url("/Fonts/Gilroy-light.otf");
 }
 
 html {
@@ -277,7 +277,7 @@ body,
 }
 
 .layouts-app {
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .layouts-app-navigation {
@@ -325,11 +325,12 @@ body,
 
 .layouts-app-navigation-main {
   height: 100%;
-  background-image: url(/images/inlogImage.jpg?5ecb02b1259b6f89cb301c61a94db62e);
+  background-image: url(/images/inlogImage.jpg);
 }
 
 .layouts-app-navigation-main-inner {
   position: relative;
+  overflow: hidden;
 }
 
 .layouts-app-navigation-main-inner-blok {

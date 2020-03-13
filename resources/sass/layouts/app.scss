@@ -1,5 +1,5 @@
 .layouts-app{
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 .layouts-app-navigation {
@@ -47,11 +47,12 @@
 
 .layouts-app-navigation-main {
     height: 100%;
-    background-image: url(logo-images/inlogImage.jpg);
+    background-image: url(/images/inlogImage.jpg);
 }
 
 .layouts-app-navigation-main-inner {
     position: relative;
+    overflow: hidden;
 }
 .layouts-app-navigation-main-inner-blok{
     position: absolute;
