@@ -11,6 +11,12 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <style type="text/css">
+        @font-face {
+            font-family: gilroy;
+            src: url('{{ public_path('Fonts/Gilroy-Light.otf') }}');
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
