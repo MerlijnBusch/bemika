@@ -357,6 +357,28 @@ body,
   padding: 0 8px;
 }
 
+.month-list {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+
+.month-list li {
+  flex: 1 0 14%;
+}
+
+.month-item-disabled,
+.month-item {
+  height: 50px;
+  background: #FFFFFF;
+}
+
+.month-item-disabled {
+  background: rgba(255, 255, 255, 0.75);
+}
+
 .activity-table-th-title {
   white-space: nowrap;
   overflow: hidden;

@@ -1,0 +1,21 @@
+.month-list{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  li{
+    flex: 1 0 14%;
+  }
+}
+
+.month-item-disabled, .month-item{
+  height: 50px;
+  background: $bemika-white;
+}
+.month-item{
+
+}
+.month-item-disabled{
+  background: transparentize($bemika-white,.25);
+}
