@@ -38315,7 +38315,7 @@ var render = function() {
           "a",
           {
             attrs: {
-              href: _vm.url + "/dashboard/patient/tasks/" + _vm.patient.id
+              href: _vm.url + "/dashboard/patient/tasks1/" + _vm.patient.id
             }
           },
           [_vm._v("Tasks")]

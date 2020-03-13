@@ -15,10 +15,10 @@ class AddForeignActivityBelongsToPatient extends Migration
     {
         Schema::create('foreign_activity_belongs_to_patient', function (Blueprint $table) {
             $table->bigIncrements('id');
-
             $table->string('planned_date');
             $table->unsignedBigInteger('activity_id');
             $table->unsignedBigInteger('patient_id');
+            $table->timestamps();
 
             $table->foreign('activity_id')
                 ->references('id')

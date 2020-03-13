@@ -58,7 +58,7 @@ html {
 html,
 body,
 #app {
-  height: 100%;
+  height: 100vh;
   margin: 0;
 }
 
@@ -74,7 +74,6 @@ body,
 
 .layouts-main-container-content {
   flex: 1;
-  background: yellow;
 }
 
 .notify-offline-container {
@@ -90,7 +89,6 @@ body,
 
 .notify-offline-text-container {
   padding: 12px;
-  background: #d50000;
   border-radius: 8px;
   color: white;
 }
