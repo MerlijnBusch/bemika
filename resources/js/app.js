@@ -10,10 +10,6 @@ window.Vue = require('vue');
 
 import store from './store/index'
 
-import setLanguage from './functions/setLanguage';
-const f = new setLanguage;
-f.addListener();
-
 import DayFilter from "./DashboardFilters/DayFilter";
 import WeekFilter from "./DashboardFilters/WeekFilter";
 import MonthFilter from "./DashboardFilters/MonthFilter";
