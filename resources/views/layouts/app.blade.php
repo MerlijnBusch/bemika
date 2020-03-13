@@ -14,7 +14,7 @@
     <style type="text/css">
         @font-face {
             font-family: gilroy;
-            src: url('{{ public_path('Fonts/Gilroy-Light.otf') }}');
+            src: url('{{ public_path('Fonts/Gilroy-Light.otf') }}') format("opentype");
         }
     </style>
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
