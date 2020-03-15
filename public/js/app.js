@@ -1920,7 +1920,7 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Tasks_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tasks.vue */ "./resources/js/components/Tasks.vue");
+/* harmony import */ var _Tasks_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Tasks.vue */ "./resources/js/components/Tasks.vue");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
@@ -1975,7 +1975,7 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     };
   },
   components: {
-    Tasks: _Tasks_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    Tasks: _Tasks_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   computed: {
     selectedYear: function selectedYear() {
@@ -2126,8 +2126,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['tasks']
+  props: ['tasks'],
+  data: function data() {
+    return {
+      dots: []
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    console.log(this.tasks);
+
+    var _loop = function _loop(i) {
+      // console.log(this.dots.findIndex(d => d.patient === this.tasks[i].patient));
+      if (_this.dots.findIndex(function (d) {
+        return d.patient.id === _this.tasks[i].patient.id;
+      }) === -1) {
+        _this.dots.push({
+          patient: _this.tasks[i].patient,
+          activities: [_this.tasks[i].activity]
+        });
+      } else {
+        _this.dots[_this.dots.findIndex(function (d) {
+          return d.patient.id === _this.tasks[i].patient.id;
+        })].activities.push(_this.tasks[i].activity);
+      }
+    };
+
+    for (var i = 0; i < this.tasks.length; i++) {
+      _loop(i);
+    }
+  }
 });
 
 /***/ }),
@@ -38240,7 +38274,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "calender" }, [
-    _vm._v("\n    " + _vm._s(this.selectedMonthString) + "\n    "),
+    _vm._v("\n    " + _vm._s(this.selectedMonthString) + " "),
+    _c("button", [_vm._v("previous month")]),
+    _c("button", [_vm._v("next month")]),
+    _vm._v(" "),
     _c(
       "ul",
       { staticClass: "month-list" },
@@ -38521,9 +38558,21 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "tasks" }, [
-    _c("i", [_vm._v(_vm._s(_vm.tasks.length) + " task(s)")])
-  ])
+  return _c(
+    "div",
+    { staticClass: "tasks" },
+    _vm._l(_vm.dots, function(dot) {
+      return _c(
+        "div",
+        {
+          key: dot.patient,
+          style: { backgroundColor: dot.patient.color_code }
+        },
+        [_vm._v("\n        " + _vm._s(dot.activities.length) + "\n    ")]
+      )
+    }),
+    0
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -52867,8 +52916,8 @@ var state = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\timhu\Desktop\bemika\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\timhu\Desktop\bemika\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Tim Huijkman\PhpstormProjects\bemika\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Tim Huijkman\PhpstormProjects\bemika\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

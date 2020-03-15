@@ -371,12 +371,28 @@ body,
 
 .month-item-disabled,
 .month-item {
-  height: 50px;
+  min-height: 150px;
   background: #FFFFFF;
 }
 
 .month-item-disabled {
   background: rgba(255, 255, 255, 0.75);
+}
+
+.tasks {
+  display: block;
+  width: calc(100% + 16px);
+  margin: 0 -8px;
+}
+
+.tasks > div {
+  display: inline-block;
+  border-radius: 100%;
+  margin: 0 8px;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
 }
 
 .activity-table-th-title {

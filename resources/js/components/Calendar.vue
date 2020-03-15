@@ -1,6 +1,6 @@
 <template>
     <div class="calender">
-        {{this.selectedMonthString}}
+        {{this.selectedMonthString}} <button>previous month</button><button>next month</button>
         <ul class="month-list">
             <li class="month-item-disabled" v-for="index in (firstWeekdayOfTheMonth + 5) % 7"
                 :key="'previousMonth' + index">
