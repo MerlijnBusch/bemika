@@ -43,7 +43,7 @@
 * ``app/Model.php`` for example ``app/User.php``
 * to add model ``php artisan make:model Name.php``
 
-### Controller 
+### Controller
 * ``app/Http/Controller`` Are all the controllers
 * to add controller ``php artisan make:controller NameController``
 
