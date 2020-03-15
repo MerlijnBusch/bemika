@@ -400,6 +400,50 @@ body,
   padding: 0 8px;
 }
 
+.calender {
+  background: #479276;
+  min-height: 100%;
+  padding: 24px;
+}
+
+.month-list {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+
+.month-list li {
+  flex: 1 0 14%;
+}
+
+.month-item-disabled,
+.month-item {
+  min-height: 150px;
+  background: #FFFFFF;
+}
+
+.month-item-disabled {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.tasks {
+  display: block;
+  width: calc(100% + 16px);
+  margin: 0 -8px;
+}
+
+.tasks > div {
+  display: inline-block;
+  border-radius: 100%;
+  margin: 0 8px;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+}
+
 .activity-table-th-title {
   white-space: nowrap;
   overflow: hidden;

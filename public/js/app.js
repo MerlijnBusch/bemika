@@ -1920,6 +1920,15 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CalendarTaskComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CalendarTaskComponent.vue */ "./resources/js/components/CalendarTaskComponent.vue");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 //
 //
 //
@@ -1936,16 +1945,68 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'calendar',
   props: ['data'],
   data: function data() {
     return {
-      title: "Hello world!"
+      date: new Date(),
+      arrays: {
+        months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+      }
     };
   },
+  components: {
+    Tasks: _CalendarTaskComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  computed: {
+    selectedYear: function selectedYear() {
+      return this.date.getFullYear();
+    },
+    selectedMonth: function selectedMonth() {
+      return this.date.getMonth();
+    },
+    selectedMonthString: function selectedMonthString() {
+      return this.arrays.months[this.selectedMonth + 11];
+    },
+    daysInSelectedMonthYear: function daysInSelectedMonthYear() {
+      return this.getDaysInMonthYear(this.selectedYear, this.selectedMonth);
+    },
+    firstWeekdayOfTheMonth: function firstWeekdayOfTheMonth() {
+      return new Date(this.selectedYear, this.selectedMonth, 1).getDay();
+    }
+  },
+  methods: {
+    getDaysInMonthYear: function getDaysInMonthYear(year, month) {
+      return new Date(year, month, 0).getDate();
+    }
+  },
   mounted: function mounted() {
-    console.log(this.data);
-    console.log('Component mounted.');
+    var arrayKeys = Object.keys(this.arrays);
+
+    for (var i = 0; i < arrayKeys.length; i++) {
+      var array = this.arrays[arrayKeys[i]];
+      array.push.apply(array, _toConsumableArray(array));
+      this.arrays[arrayKeys[i]] = array;
+    }
   }
 });
 
@@ -38212,22 +38273,94 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-8" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [
-            _vm._v("Example Component " + _vm._s(_vm.title))
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _vm._v(
-              "\n                    I'm an example component.\n                "
+  return _c("div", { staticClass: "calender" }, [
+    _vm._v("\n    " + _vm._s(this.selectedMonthString) + " "),
+    _c("button", [_vm._v("previous month")]),
+    _c("button", [_vm._v("next month")]),
+    _vm._v(" "),
+    _c(
+      "ul",
+      { staticClass: "month-list" },
+      [
+        _vm._l((_vm.firstWeekdayOfTheMonth + 5) % 7, function(index) {
+          return _c(
+            "li",
+            {
+              key: "previousMonth" + index,
+              staticClass: "month-item-disabled"
+            },
+            [
+              _c("div", { staticClass: "month-item-box" }, [
+                _c("span", { staticClass: "month-item-number" }, [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(
+                        _vm.getDaysInMonthYear(
+                          _vm.selectedYear,
+                          _vm.selectedMonth - 1
+                        ) -
+                          (_vm.firstWeekdayOfTheMonth + 5) +
+                          index
+                      ) +
+                      "\n                "
+                  )
+                ])
+              ])
+            ]
+          )
+        }),
+        _vm._v(" "),
+        _vm._l(_vm.daysInSelectedMonthYear, function(index) {
+          return _c(
+            "li",
+            { key: "currentMonth" + index, staticClass: "month-item" },
+            [
+              _c(
+                "div",
+                { staticClass: "month-item-box" },
+                [
+                  _c("span", { staticClass: "month-item-number" }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(index) +
+                        "\n                "
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("Tasks", { attrs: { tasks: _vm.data[index] } })
+                ],
+                1
+              )
+            ]
+          )
+        }),
+        _vm._v(" "),
+        _vm._l(
+          (_vm.firstWeekdayOfTheMonth + _vm.daysInSelectedMonthYear) % 7,
+          function(index) {
+            return _c(
+              "li",
+              {
+                key: "followingMonth" + index,
+                staticClass: "month-item-disabled"
+              },
+              [
+                _c("div", { staticClass: "month-item-box" }, [
+                  _c("span", { staticClass: "month-item-number" }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(index) +
+                        "\n                "
+                    )
+                  ])
+                ])
+              ]
             )
-          ])
-        ])
-      ])
-    ])
+          }
+        )
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = []

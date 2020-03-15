@@ -1,0 +1,42 @@
+.calender{
+  background: $bemika-dark-green;
+  min-height: 100%;
+  padding: $padding-big;
+}
+
+.month-list{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  li{
+    flex: 1 0 14%;
+  }
+}
+
+.month-item-disabled, .month-item{
+  min-height: 150px;
+  background: $bemika-white;
+}
+.month-item{
+
+}
+.month-item-disabled{
+  background: transparentize($bemika-white,.25);
+}
+
+.tasks{
+  display: block;
+  width: calc(100% + #{$padding-small * 2});
+  margin: 0 #{-$padding-small};
+  > div{
+    display: inline-block;
+    border-radius: 100%;
+    margin: 0 #{$padding-small};
+    width: $padding-big;
+    height: $padding-big;
+    line-height: $padding-big;
+    text-align: center;
+  }
+}
