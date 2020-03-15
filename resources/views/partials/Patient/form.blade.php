@@ -12,16 +12,11 @@
         {{ Form::open(['route' => 'patient.store']) }}
     @endif
 
-    <label>Name</label>
-    {{ Form::text('name', old('name', $patient->name ?? ''), ['class' => '']) }}
-    <label>Gender</label>
-    {{ Form::select('gender', Config::get('gender'), old('gender', $patient->gender ?? ''), ['class' => '']) }}
-    <label>Language</label>
-    {{ Form::select('lang', Config::get('languages'), old('lang', $patient->lang ?? ''), ['class' => '']) }}
-    <label>Birthday</label>
-    {{ Form::date('birthday', old('birthday', $patient->birthday ?? ''), ['class' => '']) }}
-    <label>Color code</label>
-    <input type="color" name="color_code" value="{{ old('color_code', $patient->color_code ?? '') }}"/>
-    {{ Form::submit('Save', ['name' => 'submit'], ['class' => '']) }}
+    {{ Form::text('name', old('name', $patient->name ?? ''), ['class' => 'form-field', 'placeholder' => trans('labels.placeholder_name')]) }}
+    {{ Form::select('gender', Config::get('gender'), old('gender', $patient->gender ?? ''), ['class' => 'form-field',]) }}
+    {{ Form::select('lang', Config::get('languages'), old('lang', $patient->lang ?? ''), ['class' => 'form-field', 'placeholder' => trans('labels.placeholder_birthday')]) }}
+    {{ Form::date('birthday', old('birthday', $patient->birthday ?? ''), ['class' => 'form-field', 'placeholder' => trans('labels.')]) }}
+    <input type="color" name="color_code" class="" value="{{ old('color_code', $patient->color_code ?? '') }}"/>
+    {{ Form::submit('Save', ['name' => 'submit', 'class' => 'button']) }}
     {{ Form::close() }}
 @stop

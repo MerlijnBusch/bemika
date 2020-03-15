@@ -1,14 +1,18 @@
+.layouts-app{
+    overflow: hidden;
+}
+
 .layouts-app-navigation {
     width: 100%;
-    justify-content: flex-end;
-    align-items: center;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0,0,0,.5);
     color: #5cd8ff;
-    display: flex;
     height: 72px;
     overflow: hidden;
     z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .layouts-app-navigation-container {
@@ -42,15 +46,27 @@
 }
 
 .layouts-app-navigation-main {
-    display: flex;
-    justify-content: center;
-    align-content: center;
+    height: 100%;
+    background-image: url(/images/inlogImage.jpg);
 }
 
 .layouts-app-navigation-main-inner {
-    max-width: 900px;
+    position: relative;
+    overflow: hidden;
 }
-
+.layouts-app-navigation-main-inner-blok{
+    position: absolute;
+    display: block;
+    border: 3px solid #63C29C;
+    color: #585757;
+    border-radius: 5px;
+    right: 200px;
+    top: 50px;
+    padding: 15px;
+    background: white;
+    max-width: 400px;
+    box-shadow: 0px 1px 10px -3px black;
+}
 .layouts-app-navigation-link-container{
     flex: 1;
     align-items: center;
@@ -72,4 +88,14 @@
 .layouts-app-navigation-link-active {
     color: #5cd8ff !important;
     margin-top: 5px;
+}
+.layouts-app-nav-logo{
+    width: auto;
+    height: 63px;
+    display: block;
+    margin: 0 auto;
+}
+
+.layouts-app-navigation-main-inner-blok-nav{
+    display: flex;
 }

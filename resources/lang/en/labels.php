@@ -29,4 +29,8 @@ return [
     'form_postal_code' => 'Postal code',
     'form_expiration_date' => 'Expiration date',
 
+    'placeholder_name' => 'name',
+    'placeholder_email' => 'email',
+    'placeholder_birthday' => 'birthday',
+
 ];

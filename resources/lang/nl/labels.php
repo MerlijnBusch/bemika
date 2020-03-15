@@ -29,4 +29,8 @@ return [
     'form_credit_card' => 'Credit card nummer',
     'form_postal_code' => 'Post code',
     'form_expiration_date' => 'Houdbaarheids datum',
+
+    'placeholder_name' => 'naam',
+    'placeholder_email' => 'email',
+    'placeholder_birthday' => 'geboorte jaar',
 ];

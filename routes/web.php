@@ -9,9 +9,15 @@ Route::get('/dashboard/month/{date}', 'DashboardController@month')->name('dashbo
 Route::get('/dashboard/week/{date}', 'DashboardController@week')->name('dashboard.filter.week');
 Route::get('/dashboard/day/{date}', 'DashboardController@day')->name('dashboard.filter.day');
 Route::get('/dashboard/patient/profile/{id}', 'PatientController@edit')->name('dashboard.patient.profile');
-Route::get('/dashboard/patient/tasks/{id}', 'DashboardController@patientTasks')->name('dashboard.patient.tasks');
 Route::get('/dashboard/patient/calender/{id}', 'DashboardController@patientCalender')->name('dashboard.patient.calender');
 Route::get('/dashboard/patient/summary/{id}', 'DashboardController@patientSummary')->name('dashboard.patient.summary');
+
+Route::get('/dashboard/patient/tasks1/{id}', 'DashboardController@patientTasksFirst')->name('dashboard.patient.tasks.first');
+Route::get('/dashboard/patient/tasks2/{id}', 'DashboardController@patientTasksSecond')->name('dashboard.patient.tasks.second');
+Route::get('/dashboard/patient/tasks3/{id}', 'DashboardController@patientTasksThird')->name('dashboard.patient.tasks.third');
+Route::post('/dashboard/patient/tasks1/{id}', 'DashboardController@patientTasksPostFirst')->name('dashboard.patient.tasks.first.post');
+Route::post('/dashboard/patient/tasks2/{id}', 'DashboardController@patientTasksPostSecond')->name('dashboard.patient.tasks.second.post');
+Route::post('/dashboard/patient/tasks3/{id}', 'DashboardController@patientTasksPostThird')->name('dashboard.patient.tasks.third.post');
 
 Route::get('/patient', 'PatientController@get')->name('patient.get');
 Route::get('/patient/create', 'PatientController@create')->name('patient.create');
