@@ -1921,6 +1921,7 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CalendarTaskComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CalendarTaskComponent.vue */ "./resources/js/components/CalendarTaskComponent.vue");
+/* harmony import */ var _DashboardFilters_MonthFilter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../DashboardFilters/MonthFilter */ "./resources/js/DashboardFilters/MonthFilter.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
@@ -1961,6 +1962,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'calendar',
@@ -1997,6 +2001,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   methods: {
     getDaysInMonthYear: function getDaysInMonthYear(year, month) {
       return new Date(year, month, 0).getDate();
+    },
+    nextMonth: function nextMonth() {
+      console.log(_DashboardFilters_MonthFilter__WEBPACK_IMPORTED_MODULE_1__["default"].next());
     }
   },
   mounted: function mounted() {
@@ -2038,8 +2045,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     var _this = this;
-
-    console.log(this.tasks);
 
     var _loop = function _loop(i) {
       // console.log(this.dots.findIndex(d => d.patient === this.tasks[i].patient));
@@ -38274,9 +38279,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "calender" }, [
-    _vm._v("\n    " + _vm._s(this.selectedMonthString) + " "),
+    _vm._v("\n    " + _vm._s(this.selectedMonthString) + "\n    "),
     _c("button", [_vm._v("previous month")]),
-    _c("button", [_vm._v("next month")]),
+    _vm._v(" "),
+    _c("button", { on: { click: _vm.nextMonth } }, [_vm._v("next month")]),
     _vm._v(" "),
     _c(
       "ul",
@@ -38392,7 +38398,7 @@ var render = function() {
       return _c(
         "div",
         {
-          key: dot.patient,
+          key: dot.patient.id,
           style: { backgroundColor: dot.patient.color_code }
         },
         [_vm._v("\n        " + _vm._s(dot.activities.length) + "\n    ")]
@@ -52980,8 +52986,8 @@ var state = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/merlijn/PhpstormProjects/dashboard-robin-assistant/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/merlijn/PhpstormProjects/dashboard-robin-assistant/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Tim Huijkman\PhpstormProjects\bemika\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Tim Huijkman\PhpstormProjects\bemika\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

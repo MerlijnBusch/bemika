@@ -1,6 +1,8 @@
 <template>
     <div class="calender">
-        {{this.selectedMonthString}} <button>previous month</button><button>next month</button>
+        {{this.selectedMonthString}}
+        <button>previous month</button>
+        <button @click="nextMonth">next month</button>
         <ul class="month-list">
             <li class="month-item-disabled" v-for="index in (firstWeekdayOfTheMonth + 5) % 7"
                 :key="'previousMonth' + index">
@@ -32,6 +34,8 @@
 
 <script>
     import Tasks from './CalendarTaskComponent.vue'
+    import MonthFilter from '../DashboardFilters/MonthFilter'
+
     export default {
         name: 'calendar',
         props: ['data'],
@@ -65,6 +69,9 @@
         methods: {
             getDaysInMonthYear(year, month) {
                 return new Date(year, month, 0).getDate()
+            },
+            nextMonth(){
+                console.log(MonthFilter.next());
             }
         },
         mounted() {

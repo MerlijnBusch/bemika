@@ -418,17 +418,25 @@ body,
   padding: 0;
 }
 
-.month-list li {
-  flex: 1 0 14%;
-}
-
 .month-item-disabled,
 .month-item {
+  flex: 1 0 14%;
   min-height: 150px;
+  display: flex;
+}
+
+.month-item-disabled .month-item-box,
+.month-item .month-item-box {
+  margin: 4px;
+  padding: 8px;
+  flex: 1;
+}
+
+.month-item .month-item-box {
   background: #FFFFFF;
 }
 
-.month-item-disabled {
+.month-item-disabled .month-item-box {
   background: rgba(255, 255, 255, 0.75);
 }
 

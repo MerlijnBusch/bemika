@@ -1,6 +1,6 @@
 <template>
     <div class="tasks">
-        <div v-for="dot in dots" :key="dot.patient" :style="{backgroundColor : dot.patient.color_code}">
+        <div v-for="dot in dots" :key="dot.patient.id" :style="{backgroundColor : dot.patient.color_code}">
             {{dot.activities.length}}
         </div>
     </div>
@@ -15,7 +15,6 @@
             }
         },
         mounted() {
-            console.log(this.tasks);
             for (let i = 0; i < this.tasks.length; i++) {
                 // console.log(this.dots.findIndex(d => d.patient === this.tasks[i].patient));
                 if (this.dots.findIndex(d => d.patient.id === this.tasks[i].patient.id) === -1) {
