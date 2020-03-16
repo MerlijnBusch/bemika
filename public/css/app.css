@@ -1,10 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@font-face {
-  font-family: gilroy;
-  src: url("/fonts/Gilroy-light.otf") format("opentype");
+  font-family: Gilroy;
+  src: url("/tekst/Gilroy-light.otf") format("opentype");
 }
 
 html {
-  font-family: gilroy;
+  font-family: Gilroy;
 }
 
 .form-field {
