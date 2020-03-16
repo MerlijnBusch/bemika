@@ -14,6 +14,12 @@ import DayFilter from "./DashboardFilters/DayFilter";
 import WeekFilter from "./DashboardFilters/WeekFilter";
 import MonthFilter from "./DashboardFilters/MonthFilter";
 
+console.log(DayFilter.setDate(new Date()));
+console.log(DayFilter.next());
+console.log(WeekFilter.setDate(new Date()));
+console.log(WeekFilter.next());
+console.log(MonthFilter.setDate(new Date()));
+console.log(MonthFilter.next());
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
