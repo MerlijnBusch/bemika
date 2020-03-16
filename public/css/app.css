@@ -381,6 +381,10 @@ body,
   display: flex;
 }
 
+.layouts-app-main-inner-img {
+  width: 100%;
+}
+
 .payment-footer-container {
   position: absolute;
   width: 100%;
