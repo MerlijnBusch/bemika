@@ -2090,6 +2090,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'calendarHolder',
@@ -38514,6 +38516,10 @@ var render = function() {
       _vm._v(" "),
       _vm.selected === "Month"
         ? _c("month-calendar", { attrs: { data: _vm.data } })
+        : _vm.selected === "Week"
+        ? _c("div", [_vm._v("Week calendar")])
+        : _vm.selected === "Day"
+        ? _c("div", [_vm._v("Day calendar")])
         : _vm._e()
     ],
     1

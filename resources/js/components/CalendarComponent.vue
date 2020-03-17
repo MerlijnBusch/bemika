@@ -4,6 +4,8 @@
         <button @click="selected = 'Week'">Week</button>
         <button @click="selected = 'Day'">Day</button>
         <month-calendar v-if="selected === 'Month'" :data="data"></month-calendar>
+        <div v-else-if="selected === 'Week'">Week calendar</div>
+        <div v-else-if="selected === 'Day'">Day calendar</div>
     </div>
 </template>
 
