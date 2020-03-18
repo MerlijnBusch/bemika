@@ -20,7 +20,7 @@ class MonthFilter {
     }
 
     static async previous() {
-        this.date = new Date(this.date).setMonth(new Date(this.date).getMonth() + 1);
+        this.date = new Date(this.date).setMonth(new Date(this.date).getMonth() - 1);
         return await this.fetch(this.date, window.location.origin + "/dashboard/month/");
     }
 

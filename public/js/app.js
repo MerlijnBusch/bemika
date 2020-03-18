@@ -1983,7 +1983,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   },
   computed: {
     selectedYear: function selectedYear() {
-      return this.date.getFullYear();
+      //TODO: Merlijn Fix this
+      return new Date(this.date).setMonth(new Date(this.date).getMonth() - 1).getFullYear;
     },
     selectedMonth: function selectedMonth() {
       return this.date.getMonth();
@@ -2003,11 +2004,24 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       return new Date(year, month, 0).getDate();
     },
     nextMonth: function nextMonth() {
-      this.data = _DashboardFilters_MonthFilter__WEBPACK_IMPORTED_MODULE_1__["default"].next();
+      var _this = this;
+
+      _DashboardFilters_MonthFilter__WEBPACK_IMPORTED_MODULE_1__["default"].next().then(function (d) {
+        return _this.data = d;
+      });
+      this.date = new Date(_DashboardFilters_MonthFilter__WEBPACK_IMPORTED_MODULE_1__["default"].date);
+    },
+    prevMonth: function prevMonth() {
+      var _this2 = this;
+
+      _DashboardFilters_MonthFilter__WEBPACK_IMPORTED_MODULE_1__["default"].previous().then(function (d) {
+        return _this2.data = d;
+      });
       this.date = new Date(_DashboardFilters_MonthFilter__WEBPACK_IMPORTED_MODULE_1__["default"].date);
     }
   },
   mounted: function mounted() {
+    _DashboardFilters_MonthFilter__WEBPACK_IMPORTED_MODULE_1__["default"].setDate(this.date);
     var arrayKeys = Object.keys(this.arrays);
 
     for (var i = 0; i < arrayKeys.length; i++) {
@@ -38325,7 +38339,7 @@ var render = function() {
         _vm._s(this.selectedYear) +
         "\n    "
     ),
-    _c("button", [_vm._v("previous month")]),
+    _c("button", { on: { click: _vm.prevMonth } }, [_vm._v("previous month")]),
     _vm._v(" "),
     _c("button", { on: { click: _vm.nextMonth } }, [_vm._v("next month")]),
     _vm._v(" "),
@@ -52093,7 +52107,7 @@ function () {
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                this.date = new Date(this.date).setMonth(new Date(this.date).getMonth() + 1);
+                this.date = new Date(this.date).setMonth(new Date(this.date).getMonth() - 1);
                 _context3.next = 3;
                 return this.fetch(this.date, window.location.origin + "/dashboard/month/");
 

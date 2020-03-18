@@ -1,7 +1,7 @@
 <template>
     <div>
         {{this.selectedMonthString}} {{this.selectedYear}}
-        <button>previous month</button>
+        <button @click="prevMonth">previous month</button>
         <button @click="nextMonth">next month</button>
         <ul class="month-list">
             <li class="month-item-disabled" v-for="index in (firstWeekdayOfTheMonth + 5) % 7"
@@ -51,7 +51,8 @@
         components: {Tasks},
         computed: {
             selectedYear() {
-                return this.date.getFullYear();
+                //TODO: Merlijn Fix this
+                return new Date(this.date).setMonth(new Date(this.date).getMonth() - 1).getFullYear;
             },
             selectedMonth() {
                 return this.date.getMonth();
@@ -71,11 +72,20 @@
                 return new Date(year, month, 0).getDate()
             },
             nextMonth() {
-                this.data = MonthFilter.next();
+                MonthFilter.next().then(d =>
+                this.data = d
+                );
+                this.date = new Date(MonthFilter.date);
+            },
+            prevMonth() {
+                MonthFilter.previous().then(d =>
+                    this.data = d
+                );
                 this.date = new Date(MonthFilter.date);
             }
         },
         mounted() {
+            MonthFilter.setDate(this.date);
             let arrayKeys = Object.keys(this.arrays);
             for (let i = 0; i < arrayKeys.length; i++) {
                 let array = this.arrays[arrayKeys[i]];
