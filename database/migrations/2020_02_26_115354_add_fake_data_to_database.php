@@ -20,7 +20,7 @@ class AddFakeDataToDatabase extends Migration
      */
     public function up()
     {
-        if(env('APP_DEBUG') && env('APP_STATUS') == 'dev'){
+//        if(env('APP_DEBUG') && env('APP_STATUS') == 'dev'){
             Log::debug('debug is true and adding fake data to database');
 
             //Create fake user begeleider
@@ -60,7 +60,7 @@ class AddFakeDataToDatabase extends Migration
                 $task->activity_id = random_int(1,3);
                 $task->save();
             }
-        }
+//        }
     }
 
     /**
