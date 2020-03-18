@@ -1,8 +1,8 @@
 <template>
     <div>
         {{this.selectedMonthString}} {{this.selectedYear}}
-        <button @click="prevMonth">previous month</button>
-        <button @click="nextMonth">next month</button>
+        <button class="button" @click="prevMonth">previous month</button>
+        <button class="button" @click="nextMonth">next month</button>
         <ul class="month-list">
             <li class="month-item-disabled" v-for="index in (firstWeekdayOfTheMonth + 5) % 7"
                 :key="'previousMonth' + index">
@@ -51,8 +51,9 @@
         components: {Tasks},
         computed: {
             selectedYear() {
-                //TODO: Merlijn Fix this
-                return new Date(this.date).setMonth(new Date(this.date).getMonth() - 1).getFullYear;
+                let holder = new Date (this.date);
+                holder.setMonth(this.date.getMonth() - 1);
+                return holder.getFullYear();
             },
             selectedMonth() {
                 return this.date.getMonth();

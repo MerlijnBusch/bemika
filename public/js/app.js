@@ -1983,8 +1983,9 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   },
   computed: {
     selectedYear: function selectedYear() {
-      //TODO: Merlijn Fix this
-      return new Date(this.date).setMonth(new Date(this.date).getMonth() - 1).getFullYear;
+      var holder = new Date(this.date);
+      holder.setMonth(this.date.getMonth() - 1);
+      return holder.getFullYear();
     },
     selectedMonth: function selectedMonth() {
       return this.date.getMonth();
@@ -38339,9 +38340,13 @@ var render = function() {
         _vm._s(this.selectedYear) +
         "\n    "
     ),
-    _c("button", { on: { click: _vm.prevMonth } }, [_vm._v("previous month")]),
+    _c("button", { staticClass: "button", on: { click: _vm.prevMonth } }, [
+      _vm._v("previous month")
+    ]),
     _vm._v(" "),
-    _c("button", { on: { click: _vm.nextMonth } }, [_vm._v("next month")]),
+    _c("button", { staticClass: "button", on: { click: _vm.nextMonth } }, [
+      _vm._v("next month")
+    ]),
     _vm._v(" "),
     _c(
       "ul",
